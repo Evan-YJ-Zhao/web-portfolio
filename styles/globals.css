@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body,
+  main {
+    @apply w-screen h-dvh;
+  }
+}
+
+@layer components {
+  @import "floating-triangle.css";
+
+  .btn-main-menu {
+    @apply text-center block z-10;
+  }
+}
+
+@layer utilities {
+  .add-border {
+    @apply overflow-hidden;
+  }
+
+  .add-border::before {
+    @apply content-[""] absolute w-1/6 min-h-[250%] left-[41.66%] right-[41.66%] bg-black animate-spin;
+  }
+
+  .add-border:hover::before {
+    @apply w-0;
+  }
+
+  .add-border::after {
+    @apply content-[""] absolute bg-white inset-[0.4rem];
+  }
+
+  .btn-main-menu-gray-effect:hover {
+    @apply bg-gray-300;
+  }
+
+  .btn-main-menu-gradient-effect:hover {
+    @apply shadow-lg bg-gradient-to-r from-green-200 via-blue-200 to-purple-200;
+  }
+}
