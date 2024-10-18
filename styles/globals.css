@@ -41,4 +41,5 @@
   .btn-main-menu-gradient-effect:hover {
     @apply shadow-lg bg-gradient-to-r from-green-200 via-blue-200 to-purple-200;
   }
+
 }

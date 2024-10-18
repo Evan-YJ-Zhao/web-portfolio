@@ -1,3 +1,5 @@
+'use client'
+
 import { getRandomIntByRange, rangeInclusive } from "@/utils";
 
 type FloatingTriangleCSSProperties = React.CSSProperties & {
@@ -18,10 +20,11 @@ export default function FloatingTriangleGroup({
   triangleNums,
 }: FloatingTriangleGroupProps) {
   const range = Math.floor(100 / triangleNums);
-
+  console.log(window.innerWidth);
   return (
     <div>
       {rangeInclusive(0, triangleNums - 1).map((i: number) => {
+        const key = `tri-${i}`;
         const start = range * i;
         const end = start + range - 1;
         const style: FloatingTriangleCSSProperties = {
@@ -34,7 +37,7 @@ export default function FloatingTriangleGroup({
           "--floating-duration": `${getRandomIntByRange(5, 10)}s`,
         };
 
-        return <span className="floating-triangle" style={style}></span>;
+        return <span key={key} className="floating-triangle" style={style}></span>;
       })}
     </div>
   );
