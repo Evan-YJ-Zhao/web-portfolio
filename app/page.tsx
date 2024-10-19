@@ -15,8 +15,8 @@ const menuItems: ReadonlyArray<MenuItem> = Object.freeze([
 
 export default function Home() {
   return (
-    <div>
-      <div className="justify-center top-40 relative items-center flex z-10">
+    <div className="w-screen h-screen flex justify-center items-center">
+      <div className="absolute z-10 top-1/4">
         <nav>
           <ul className="menu menu-lg bg-neutral rounded-box w-96 text-lg relative justify-center add-border">
             {menuItems.map((menuItem: MenuItem) => (
