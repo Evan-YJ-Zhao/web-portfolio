@@ -15,10 +15,13 @@ const menuItems: ReadonlyArray<MenuItem> = Object.freeze([
 
 export default function Home() {
   return (
-    <div className="w-screen h-screen flex justify-center items-center">
+    <div className="flex justify-center items-center">
       <div className="absolute z-10 top-1/4">
         <nav>
-          <ul className="menu menu-lg bg-neutral rounded-box w-96 text-lg relative justify-center add-border">
+          <ul
+            className="menu menu-lg bg-neutral rounded-box text-lg relative justify-center add-border 
+                        phone-sm:w-48 phone-lg:w-52 tablet:w-80 laptop:w-96"
+          >
             {menuItems.map((menuItem: MenuItem) => (
               <li
                 key={menuItem.id}

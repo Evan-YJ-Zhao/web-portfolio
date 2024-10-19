@@ -24,6 +24,13 @@ const config: Config = {
         spin: "spin 5s linear infinite",
       },
     },
+    screens: {
+      'phone-sm':'320px',
+      'phone-lg':'425px',
+      'tablet': '640px',
+      'laptop': '1024px',
+      'desktop': '1280px'
+    }
   },
   plugins: [require("daisyui")],
 };
