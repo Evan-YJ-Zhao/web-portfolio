@@ -20,8 +20,6 @@ export default function FloatingTriangleGroup() {
 
   const triangleNums = Math.floor(windowSize.width / 100);
   const range = Math.ceil(100 / triangleNums);
-  console.log(windowSize.width);
-  console.log(range);
 
   return (
     <div>
@@ -38,8 +36,6 @@ export default function FloatingTriangleGroup() {
           "--border-radius": `${getRandomIntByRange(5, 30)}%`,
           "--floating-duration": `${getRandomIntByRange(5, 10)}s`,
         };
-
-        console.log(style["--left"]);
 
         return (
           <span key={key} className="floating-triangle" style={style}></span>
