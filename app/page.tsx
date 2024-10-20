@@ -43,7 +43,7 @@ export default function Home() {
         </nav>
       </div>
       <div className="w-screen h-dvh absolute top-0 overflow-hidden">
-        <FloatingTriangleGroup triangleNums={10} />
+        <FloatingTriangleGroup/>
       </div>
     </div>
   );
