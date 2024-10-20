@@ -1,5 +1,6 @@
-'use client'
+"use client";
 
+import useWindowSize, { WindowSize } from "@/hooks/useWindowSize";
 import { getRandomIntByRange, rangeInclusive } from "@/utils";
 
 type FloatingTriangleCSSProperties = React.CSSProperties & {
@@ -12,15 +13,16 @@ type FloatingTriangleCSSProperties = React.CSSProperties & {
   "--size": string;
 };
 
-type FloatingTriangleGroupProps = {
-  triangleNums: number;
-};
 
-export default function FloatingTriangleGroup({
-  triangleNums,
-}: FloatingTriangleGroupProps) {
-  const range = Math.floor(100 / triangleNums);
-  console.log(window.innerWidth);
+export default function FloatingTriangleGroup() {
+
+  const windowSize: WindowSize = useWindowSize();
+
+  const triangleNums = Math.floor(windowSize.width / 100);
+  const range = Math.ceil(100 / triangleNums);
+  console.log(windowSize.width);
+  console.log(range);
+
   return (
     <div>
       {rangeInclusive(0, triangleNums - 1).map((i: number) => {
@@ -37,7 +39,11 @@ export default function FloatingTriangleGroup({
           "--floating-duration": `${getRandomIntByRange(5, 10)}s`,
         };
 
-        return <span key={key} className="floating-triangle" style={style}></span>;
+        console.log(style["--left"]);
+
+        return (
+          <span key={key} className="floating-triangle" style={style}></span>
+        );
       })}
     </div>
   );
