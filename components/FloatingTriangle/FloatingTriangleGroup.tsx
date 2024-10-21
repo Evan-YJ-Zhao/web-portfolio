@@ -1,7 +1,7 @@
 "use client";
 
 import useWindowSize, { WindowSize } from "@/hooks/useWindowSize";
-import { getRandomIntByRange, rangeInclusive } from "@/utils";
+import { getRandomIntByRange, rangeInclusive } from "@/utils/numbers";
 
 type FloatingTriangleCSSProperties = React.CSSProperties & {
   "--angle-start": string;

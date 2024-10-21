@@ -1,7 +1,10 @@
+import ImageSlider from "@/components/ImageSlider/ImageSlider"
 
 const page = () => {
     return (
-      <div>Contact Me</div>
+      <div>
+        <ImageSlider />
+      </div>
     )
   }
   
