@@ -13,25 +13,23 @@
   @import "floating-triangle.css";
   @import "image-slider.css";
 
-  .btn-main-menu {
-    @apply text-center block z-10;
-  }
+
 }
 
 @layer utilities {
-  .add-border {
+  .apply-border {
     @apply overflow-hidden;
   }
 
-  .add-border::before {
+  .apply-border::before {
     @apply content-[""] absolute w-1/6 min-h-[250%] left-[41.66%] right-[41.66%] bg-black animate-spin;
   }
 
-  .add-border:hover::before {
+  .apply-border:hover::before {
     @apply w-0;
   }
 
-  .add-border::after {
+  .apply-border::after {
     @apply content-[""] absolute bg-white inset-[0.4rem];
   }
 

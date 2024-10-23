@@ -19,7 +19,7 @@ export default function Home() {
       <div className="absolute z-10 top-1/4">
         <nav>
           <ul
-            className="menu menu-lg bg-neutral rounded-box text-lg relative justify-center add-border 
+            className="menu menu-lg bg-neutral rounded-box text-lg relative justify-center apply-border 
                         phone-sm:w-48 phone-lg:w-52 tablet:w-80 laptop:w-96"
           >
             {menuItems.map((menuItem: MenuItem) => (

@@ -1,14 +1,14 @@
-.slider-banner {
+.perspective-slider {
     transform-style: preserve-3d;
     transform: perspective(100vw);
 }
 
-.slider-banner .slider-item {
+.perspective-slider .apply-slider-animation {
     /* transform: translateZ(25vw); */
-    animation: rot 10s linear infinite;
+    animation: rotation 10s linear infinite;
 }
 
-@keyframes rot {
+@keyframes rotation {
     0% {
         transform: rotateY(0deg) translateZ(35vw);
     }
