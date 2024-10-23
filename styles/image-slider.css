@@ -1,0 +1,19 @@
+.slider-banner {
+    transform-style: preserve-3d;
+    transform: perspective(100vw);
+}
+
+.slider-banner .slider-item {
+    /* transform: translateZ(25vw); */
+    animation: rot 10s linear infinite;
+}
+
+@keyframes rot {
+    0% {
+        transform: rotateY(0deg) translateZ(35vw);
+    }
+
+    100% {
+        transform: rotateY(360deg) translateZ(35vw);
+    }
+}

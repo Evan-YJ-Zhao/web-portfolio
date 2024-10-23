@@ -11,6 +11,7 @@
 
 @layer components {
   @import "floating-triangle.css";
+  @import "image-slider.css";
 
   .btn-main-menu {
     @apply text-center block z-10;
