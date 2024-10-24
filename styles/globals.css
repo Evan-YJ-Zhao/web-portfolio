@@ -11,9 +11,6 @@
 
 @layer components {
   @import "floating-triangle.css";
-  @import "image-slider.css";
-
-
 }
 
 @layer utilities {
@@ -40,4 +37,6 @@
   .btn-main-menu-gradient-effect:hover {
     @apply shadow-lg bg-gradient-to-r from-green-200 via-blue-200 to-purple-200;
   }
+
+  @import "image-slider.css";
 }
