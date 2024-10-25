@@ -8,9 +8,9 @@ type MenuItem = {
 };
 
 const menuItems: ReadonlyArray<MenuItem> = Object.freeze([
-  { id: 1, itemName: "About Me", href: "/about-me", isDisabled: false },
-  { id: 2, itemName: "Contact Me", href: "/contact-me", isDisabled: false },
-  { id: 3, itemName: "Other", isDisabled: true },
+  { id: 0, itemName: "About Me", href: "/about-me", isDisabled: false },
+  { id: 1, itemName: "Contact Me", href: "/contact-me", isDisabled: false },
+  { id: 2, itemName: "Other", isDisabled: true },
 ]);
 
 export default function Home() {
