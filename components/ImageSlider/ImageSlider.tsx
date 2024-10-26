@@ -50,9 +50,10 @@ const ImageSlider = () => {
         })}
       </div>
       <div className="flex h-full justify-center items-center mt-[-2rem]">
-        <h1 className="text-center text-9xl antialiased font-bold text-white text-stroke-2 text-stroke-color-black">SKILLS</h1>
+        <h1 className="text-center text-9xl antialiased font-bold text-white text-stroke-4 text-stroke-color-black">
+          SKILLS
+        </h1>
       </div>
-
     </div>
   );
 };

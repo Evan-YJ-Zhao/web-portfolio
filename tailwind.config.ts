@@ -16,6 +16,7 @@ const config: Config = {
           neutral: "#E5E5E5",
         },
       },
+      "cmyk"
     ],
   },
 
