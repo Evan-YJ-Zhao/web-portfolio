@@ -22,13 +22,15 @@ const images: ReadonlyArray<SliderImage> = Object.freeze([
   { id: 7, image: htmlImg, description: "HTML 5 Image" },
   { id: 8, image: htmlImg, description: "HTML 5 Image" },
   { id: 9, image: htmlImg, description: "HTML 5 Image" },
+  { id: 10, image: htmlImg, description: "HTML 5 Image" },
+  { id: 11, image: htmlImg, description: "HTML 5 Image" },
 ]);
 
 const ImageSlider = () => {
   return (
     <div className="w-screen h-[38rem] relative overflow-hidden">
-      {/* 4.5rem is half of w-36 */}
-      <div className="absolute w-36 h-48 top-[6rem] left-[calc(50%-4.5rem)] apply-rotation-animation">
+      {/* 5rem is half of w-40 */}
+      <div className="absolute w-40 h-52 top-[8rem] left-[calc(50%-5rem)] z-10 apply-rotation-animation">
         {images.map((s: SliderImage) => {
           const position = s.id;
           const totalImages = images.length;
@@ -47,6 +49,10 @@ const ImageSlider = () => {
           );
         })}
       </div>
+      <div className="flex h-full justify-center items-center mt-[-2rem]">
+        <h1 className="text-center text-9xl antialiased font-bold text-white text-stroke-2 text-stroke-color-black">SKILLS</h1>
+      </div>
+
     </div>
   );
 };

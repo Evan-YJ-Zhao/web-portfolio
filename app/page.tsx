@@ -19,7 +19,7 @@ export default function Home() {
       <div className="absolute z-10 top-1/4">
         <nav>
           <ul
-            className="menu menu-lg bg-neutral rounded-box text-lg relative justify-center apply-border 
+            className="menu menu-lg bg-neutral rounded-box relative justify-center apply-border 
                         phone-sm:w-48 phone-lg:w-52 tablet:w-80 laptop:w-96"
           >
             {menuItems.map((menuItem: MenuItem) => (
@@ -30,8 +30,8 @@ export default function Home() {
                 <a
                   className={
                     menuItem.isDisabled
-                      ? "text-center block z-10 btn-main-menu-gray-effect"
-                      : "text-center block z-10 btn-main-menu-gradient-effect"
+                      ? "text-center font-bold font-mono block z-10 btn-main-menu-gray-effect"
+                      : "text-center font-bold font-mono block z-10 btn-main-menu-gradient-effect"
                   }
                   href={menuItem.href}
                 >
