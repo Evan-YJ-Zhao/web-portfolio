@@ -77,6 +77,14 @@ const config: Config = {
           "-webkit-text-stroke-color": "black",
         },
       });
+      addUtilities({
+        ".run-animation":{
+          "animation-play-state": "running"
+        }, 
+        ".pause-animation": {
+          "animation-play-state": "paused"
+        }
+      });
     }),
   ],
 };

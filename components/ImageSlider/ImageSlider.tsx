@@ -1,4 +1,7 @@
+"use client";
+
 import Image, { StaticImageData } from "next/image";
+import { useState } from "react";
 import { htmlImg } from "@/utils/images";
 
 type SliderImage = {
@@ -27,10 +30,22 @@ const images: ReadonlyArray<SliderImage> = Object.freeze([
 ]);
 
 const ImageSlider = () => {
+  const [isAnimating, setIsAnimating] = useState(true);
+
+  const handleClick = () => {
+    setIsAnimating((prev) => !prev);
+  };
+
   return (
-    <div className="w-screen h-[38rem] relative overflow-hidden">
+    <div
+      className="w-screen h-[38rem] relative overflow-hidden"
+      onClick={handleClick}
+    >
       {/* 5rem is half of w-40 */}
-      <div className="absolute w-40 h-52 top-[8rem] left-[calc(50%-5rem)] z-10 apply-rotation-animation">
+      <div
+        className={`absolute w-40 h-52 top-[8rem] left-[calc(50%-5rem)] z-10 apply-rotation-animation 
+          ${isAnimating ? "run-animation" : "pause-animation"}`}
+      >
         {images.map((s: SliderImage) => {
           const position = s.id;
           const totalImages = images.length;
