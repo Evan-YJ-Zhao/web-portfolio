@@ -1,21 +1,24 @@
 /* Should only consist of animation-related or transform-related css*/
 
-.apply-rotation-animation {
+.apply-slider-animation {
   transform-style: preserve-3d;
-  transform: perspective(100vw) rotateX(-13deg);
-  animation: rotation 40s linear infinite;
+  transform: perspective(100vw) rotateX(-13deg) rotateY(0deg);
 }
 
-.apply-rotation-animation .transform-slider-item {
-  transform: rotateY(calc(var(--degree) * 1deg)) translateZ(37vw)
+.apply-slider-animation .transform-slider-item {
+  transform: rotateY(calc(var(--degree) * 1deg)) translateZ(0vw);
+  animation: move-in-z 1s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 200ms;
 }
 
-@keyframes rotation {
+
+@keyframes move-in-z {
   0% {
-    transform: perspective(100vw) rotateX(-13deg) rotateY(0deg);
+    transform: rotateY(calc(var(--degree) * 1deg)) translateZ(0vw);
   }
 
   100% {
-    transform: perspective(100vw) rotateX(-13deg) rotateY(360deg);
+    transform: rotateY(calc(var(--degree) * 1deg)) translateZ(35vw);
   }
 }
