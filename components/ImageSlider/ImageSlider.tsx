@@ -11,7 +11,11 @@ type SliderImage = {
 };
 
 type ImageSliderCSSProperties = React.CSSProperties & {
-  "--degree": number;
+  "--slider-rotation-degree": number;
+};
+
+type ImageSliderItemCSSProperties = React.CSSProperties & {
+  "--slider-item-position-degree": number;
 };
 
 const images: ReadonlyArray<SliderImage> = Object.freeze([
@@ -29,11 +33,14 @@ const images: ReadonlyArray<SliderImage> = Object.freeze([
   { id: 11, image: htmlImg, description: "HTML 5 Image" },
 ]);
 
+const totalImages = images.length;
+const rotationDeg = 360 / totalImages;
+
 const ImageSlider = () => {
-  const [isAnimating, setIsAnimating] = useState(true);
+  const [rotationY, setRotationY] = useState(0);
 
   const handleClick = () => {
-    setIsAnimating((prev) => !prev);
+    setRotationY((prev) => prev + rotationDeg);
   };
 
   return (
@@ -43,12 +50,16 @@ const ImageSlider = () => {
     >
       <div
         className={`absolute w-[10rem] h-52 top-[8rem] left-[calc(50%-5rem)] z-10 apply-slider-animation`}
+        style={
+          {
+            "--slider-rotation-degree": rotationY,
+          } as ImageSliderCSSProperties
+        }
       >
         {images.map((s: SliderImage) => {
           const position = s.id;
-          const totalImages = images.length;
-          const style: ImageSliderCSSProperties = {
-            "--degree": position * (360 / totalImages),
+          const style: ImageSliderItemCSSProperties = {
+            "--slider-item-position-degree": position * rotationDeg,
           };
 
           return (
@@ -62,13 +73,12 @@ const ImageSlider = () => {
           );
         })}
       </div>
-      {isAnimating && (
-        <div className="flex h-full justify-center items-center mt-[-2rem]">
-          <h1 className="text-center text-9xl antialiased font-bold text-white text-stroke-4 text-stroke-color-black">
-            SKILLS
-          </h1>
-        </div>
-      )}
+
+      <div className="flex h-full justify-center items-center mt-[-2rem]">
+        <h1 className="text-center text-9xl antialiased font-bold text-white text-stroke-4 text-stroke-color-black">
+          SKILLS
+        </h1>
+      </div>
     </div>
   );
 };
