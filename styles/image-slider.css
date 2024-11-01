@@ -7,7 +7,7 @@
 }
 
 .apply-slider-animation .transform-slider-item {
-  transform: rotateY(calc(var(--slider-item-position-degree) * 1deg)) translateZ(0vw);
+  transform: rotateY(calc(var(--slider-item-position-degree) * 1deg)) translateZ(0vw) scale(var(--slider-item-scale));
   animation: move-in-z 1s ease-in-out;
   animation-fill-mode: forwards;
   animation-delay: 200ms;
@@ -16,10 +16,10 @@
 
 @keyframes move-in-z {
   0% {
-    transform: rotateY(calc(var(--slider-item-position-degree) * 1deg)) translateZ(0vw);
+    transform: rotateY(calc(var(--slider-item-position-degree) * 1deg)) translateZ(0vw) scale(var(--slider-item-scale));
   }
 
   100% {
-    transform: rotateY(calc(var(--slider-item-position-degree) * 1deg)) translateZ(35vw);
+    transform: rotateY(calc(var(--slider-item-position-degree) * 1deg)) translateZ(35vw) scale(var(--slider-item-scale));
   }
 }

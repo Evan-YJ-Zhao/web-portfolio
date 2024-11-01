@@ -16,6 +16,7 @@ type ImageSliderCSSProperties = React.CSSProperties & {
 
 type ImageSliderItemCSSProperties = React.CSSProperties & {
   "--slider-item-position-degree": number;
+  "--slider-item-scale": number;
 };
 
 const images: ReadonlyArray<SliderImage> = Object.freeze([
@@ -38,15 +39,22 @@ const rotationDeg = 360 / totalImages;
 
 const ImageSlider = () => {
   const [rotationY, setRotationY] = useState(0);
+  const [currentPos, setCurrentPos] = useState(0);
 
-  const handleClick = () => {
+  const leftControllerClick = () => {
     setRotationY((prev) => prev + rotationDeg);
+    setCurrentPos(prev => ((prev - 1) % totalImages + totalImages) % totalImages);
   };
+
+  const rightControllerClick = () => {
+    setRotationY((prev) => prev - rotationDeg);
+    setCurrentPos(prev => ((prev + 1) % totalImages + totalImages) % totalImages);
+
+  }
 
   return (
     <div
-      className="w-screen h-[38rem] relative overflow-hidden hover:cursor-pointer"
-      onClick={handleClick}
+      className="w-screen h-[40rem] relative overflow-hidden"
     >
       <div
         className={`absolute w-[10rem] h-52 top-[8rem] left-[calc(50%-5rem)] z-10 apply-slider-animation`}
@@ -58,14 +66,16 @@ const ImageSlider = () => {
       >
         {images.map((s: SliderImage) => {
           const position = s.id;
+
           const style: ImageSliderItemCSSProperties = {
             "--slider-item-position-degree": position * rotationDeg,
+            "--slider-item-scale": s.id == currentPos ? 1.2 : 1 
           };
 
           return (
             <div
               key={s.id}
-              className={`absolute inset-0 transform-slider-item`}
+              className="absolute inset-0 transform-slider-item"
               style={style}
             >
               <Image src={s.image} alt={s.description} fill />
@@ -74,7 +84,12 @@ const ImageSlider = () => {
         })}
       </div>
 
-      <div className="flex h-full justify-center items-center mt-[-2rem]">
+      <div className="absolute bottom-2 left-[calc(50%-25%/2)] w-[25%] flex justify-between items-center">
+        <button className="btn btn-circle" onClick={leftControllerClick}>&#x276E;</button>
+        <button className="btn btn-circle" onClick={rightControllerClick}>&#x276F;</button>
+      </div>
+
+      <div className="flex h-full justify-center items-center mt-[-5rem]">
         <h1 className="text-center text-9xl antialiased font-bold text-white text-stroke-4 text-stroke-color-black">
           SKILLS
         </h1>
