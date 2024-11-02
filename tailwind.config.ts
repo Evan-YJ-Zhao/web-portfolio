@@ -35,7 +35,8 @@ const config: Config = {
       "phone-lg": "425px",
       tablet: "640px",
       laptop: "1024px",
-      desktop: "1280px",
+      "desktop-sm": "1280px",
+      "desktop-lg": "1440px"
     },
   },
   plugins: [
