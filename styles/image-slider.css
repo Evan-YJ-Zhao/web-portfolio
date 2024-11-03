@@ -11,15 +11,22 @@
   animation: move-in-z 1s ease-in-out;
   animation-fill-mode: forwards;
   animation-delay: 200ms;
+  opacity: 0;
 }
 
 
 @keyframes move-in-z {
   0% {
+    opacity: 0;
     transform: rotateY(calc(var(--slider-item-position-degree) * 1deg)) translateZ(0vw) scale(var(--slider-item-scale));
   }
 
+  25% {
+    opacity: 0.5;
+  }
+
   100% {
+    opacity: 1;
     transform: rotateY(calc(var(--slider-item-position-degree) * 1deg)) translateZ(32vw) scale(var(--slider-item-scale));
   }
 }

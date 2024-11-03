@@ -1,7 +1,7 @@
 "use client";
 
 import Image, { StaticImageData } from "next/image";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import {
   awsImg,
   cloudflareImg,
@@ -14,6 +14,7 @@ import {
   tailwindCSSImg,
   typeScriptImg,
 } from "@/utils/images";
+import ImageSliderControls from "./ImageSliderControls";
 
 type SliderImage = {
   id: number;
@@ -50,19 +51,33 @@ const ImageSlider = () => {
   const [rotationY, setRotationY] = useState(0);
   const [currentPos, setCurrentPos] = useState(0);
 
-  const leftControllerClick = () => {
+  const leftControlClickHandler = useCallback(() => {
     setRotationY((prev) => prev + rotationDeg);
     setCurrentPos(
       (prev) => (((prev - 1) % totalImages) + totalImages) % totalImages
     );
-  };
+  }, []);
 
-  const rightControllerClick = () => {
+  const rightControlClickHandler = useCallback(() => {
     setRotationY((prev) => prev - rotationDeg);
     setCurrentPos(
       (prev) => (((prev + 1) % totalImages) + totalImages) % totalImages
     );
-  };
+  }, []);
+
+  // const leftControlClickHandler = () => {
+  //   setRotationY((prev) => prev + rotationDeg);
+  //   setCurrentPos(
+  //     (prev) => (((prev - 1) % totalImages) + totalImages) % totalImages
+  //   );
+  // };
+
+  // const rightControlClickHandler = () => {
+  //   setRotationY((prev) => prev - rotationDeg);
+  //   setCurrentPos(
+  //     (prev) => (((prev + 1) % totalImages) + totalImages) % totalImages
+  //   );
+  // };
 
   return (
     <div className="w-screen h-[38rem] relative overflow-hidden">
@@ -86,7 +101,7 @@ const ImageSlider = () => {
             <div
               data-theme="cmyk"
               key={s.id}
-              className="absolute inset-0 transform-slider-item border border-neutral"
+              className="absolute inset-0 transform-slider-item border border-primary"
               style={style}
             >
               <Image
@@ -100,22 +115,11 @@ const ImageSlider = () => {
         })}
       </div>
 
-      <div className="absolute bottom-2 left-[calc(50%-25%/2)] w-[25%] flex justify-between items-center">
-        <button
-          data-theme="cmyk"
-          className="btn btn-circle hover:bg-primary border border-neutral"
-          onClick={leftControllerClick}
-        >
-          &#x276E;
-        </button>
-        <button
-          data-theme="cmyk"
-          className="btn btn-circle hover:bg-primary border border-neutral"
-          onClick={rightControllerClick}
-        >
-          &#x276F;
-        </button>
-      </div>
+      <ImageSliderControls
+        className="absolute bottom-2 left-[calc(50%-25%/2)] w-[25%]"
+        leftControlClickHandler={leftControlClickHandler}
+        rightControlClickHandler={rightControlClickHandler}
+      />
 
       {/* <div className="flex h-full justify-center items-center mt-[-5rem]">
         <h1 className="text-center text-9xl antialiased font-bold text-white text-stroke-4 text-stroke-color-black">
