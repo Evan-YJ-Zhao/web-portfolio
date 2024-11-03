@@ -20,6 +20,7 @@ type SliderImage = {
   id: number;
   image: StaticImageData;
   description: string;
+  priority: boolean;
 };
 
 type ImageSliderCSSProperties = React.CSSProperties & {
@@ -32,16 +33,61 @@ type ImageSliderItemCSSProperties = React.CSSProperties & {
 };
 
 const images: ReadonlyArray<SliderImage> = Object.freeze([
-  { id: 0, image: awsImg, description: "An image of AWS" },
-  { id: 1, image: cloudflareImg, description: "An image of Cloudflare" },
-  { id: 2, image: dockerImg, description: "An image of Docker" },
-  { id: 3, image: githubImg, description: "An image of Github" },
-  { id: 4, image: mongoDBImg, description: "An image of MongoDB" },
-  { id: 5, image: nextJsImg, description: "An Image of Next.Js" },
-  { id: 6, image: nodeJsImg, description: "An Image of Node.Js" },
-  { id: 7, image: postmanImg, description: "An Image of Postman" },
-  { id: 8, image: tailwindCSSImg, description: "An Image of Tailwind CSS" },
-  { id: 9, image: typeScriptImg, description: "An Image of TypeScript" },
+  { id: 0, image: awsImg, description: "An image of AWS", priority: true },
+  {
+    id: 1,
+    image: cloudflareImg,
+    description: "An image of Cloudflare",
+    priority: true,
+  },
+  {
+    id: 2,
+    image: dockerImg,
+    description: "An image of Docker",
+    priority: false,
+  },
+  {
+    id: 3,
+    image: githubImg,
+    description: "An image of Github",
+    priority: false,
+  },
+  {
+    id: 4,
+    image: mongoDBImg,
+    description: "An image of MongoDB",
+    priority: false,
+  },
+  {
+    id: 5,
+    image: nextJsImg,
+    description: "An Image of Next.Js",
+    priority: false,
+  },
+  {
+    id: 6,
+    image: nodeJsImg,
+    description: "An Image of Node.Js",
+    priority: false,
+  },
+  {
+    id: 7,
+    image: postmanImg,
+    description: "An Image of Postman",
+    priority: false,
+  },
+  {
+    id: 8,
+    image: tailwindCSSImg,
+    description: "An Image of Tailwind CSS",
+    priority: false,
+  },
+  {
+    id: 9,
+    image: typeScriptImg,
+    description: "An Image of TypeScript",
+    priority: true,
+  },
 ]);
 
 const totalImages = images.length;
@@ -108,7 +154,7 @@ const ImageSlider = () => {
                 src={s.image}
                 alt={s.description}
                 fill
-                priority={s.id == 0 ? true : false}
+                priority={s.priority}
               />
             </div>
           );
