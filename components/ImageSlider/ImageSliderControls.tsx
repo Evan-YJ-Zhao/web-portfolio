@@ -1,18 +1,18 @@
 import { memo, MouseEventHandler } from "react";
 
 type ImageSliderControlsProps = {
-  className: string;
+  className?: string;
   leftControlClickHandler: MouseEventHandler<HTMLButtonElement>;
   rightControlClickHandler: MouseEventHandler<HTMLButtonElement>;
 };
 
+// Controls the image slider
 const ImageSliderControls = memo(
   ({
     className,
     leftControlClickHandler,
     rightControlClickHandler,
   }: ImageSliderControlsProps) => {
-    console.log("rerender");
     return (
       <div className={`${className} flex justify-between items-center`}>
         <button
