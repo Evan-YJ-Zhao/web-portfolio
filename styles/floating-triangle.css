@@ -4,12 +4,14 @@
   bottom: var(--bottom);
   animation: spin-up var(--floating-duration) linear infinite,
     round-out var(--floating-duration) linear infinite;
+  animation-delay: var(--delay-by-second);
 }
 
 .floating-triangle:before,
 .floating-triangle:after {
   @apply content-[""] absolute bg-inherit;
   animation: round-out var(--floating-duration) linear infinite;
+  animation-delay: var(--delay-by-second);
 }
 
 .floating-triangle,
@@ -33,20 +35,20 @@
 
 @keyframes spin-up {
   0% {
-    transform: translateY(0rem) rotate(var(--angle-start)) skewX(-30deg) scale(1, 0.866);
+    transform: translateY(0dvh) rotate(var(--angle-start)) skewX(-30deg) scale(1, 0.866);
     opacity: 1;
   }
 
   25% {
-    opacity: 0.8;
-  }
-
-  50% {
     opacity: 0.5;
   }
 
+  50% {
+    opacity: 0.3;
+  }
+
   100% {
-    transform: translateY(-125dvh) rotate(var(--angle-end)) skewX(-30deg) scale(1, 0.866);
+    transform: translateY(var(--translate-by-dvh)) rotate(var(--angle-end)) skewX(-30deg) scale(1, 0.866);
     opacity: 0;
   }
 }

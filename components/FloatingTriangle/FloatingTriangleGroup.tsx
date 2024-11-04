@@ -4,15 +4,16 @@ import useWindowSize, { WindowSize } from "@/hooks/useWindowSize";
 import { OptionalClassName } from "@/utils/commonTypes";
 import { getRandomIntByRange, rangeInclusive } from "@/utils/numbers";
 
-
 type FloatingTriangleCSSProperties = React.CSSProperties & {
   "--angle-start": string;
   "--angle-end": string;
   "--border-radius": string;
   "--bottom": string;
+  "--delay-by-second": string; 
   "--floating-duration": string;
   "--left": string;
   "--size": string;
+  "--translate-by-dvh": string;
 };
 
 const FloatingTriangleGroup = ({ className }: OptionalClassName) => {
@@ -31,10 +32,12 @@ const FloatingTriangleGroup = ({ className }: OptionalClassName) => {
           "--angle-start": `${getRandomIntByRange(-30, 30)}deg`,
           "--angle-end": `${getRandomIntByRange(90, 140)}deg`,
           "--left": `${getRandomIntByRange(start, end)}%`,
-          "--bottom": `${getRandomIntByRange(-25, -10)}rem`,
-          "--size": `${getRandomIntByRange(2, 12)}rem`,
+          "--bottom": `${i == 0 ? -10 : getRandomIntByRange(-25, -10)}rem`,
+          "--delay-by-second": `${i == 0 ? 0 : getRandomIntByRange(0,20)}s`,
+          "--size": `${getRandomIntByRange(2, 8)}rem`,
           "--border-radius": `${getRandomIntByRange(5, 30)}%`,
-          "--floating-duration": `${getRandomIntByRange(5, 10)}s`,
+          "--floating-duration": `${getRandomIntByRange(10, 20)}s`,
+          "--translate-by-dvh": `${getRandomIntByRange(-230, -125)}dvh`
         };
 
         return (
