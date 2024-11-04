@@ -13,9 +13,7 @@ type FloatingTriangleCSSProperties = React.CSSProperties & {
   "--size": string;
 };
 
-
-export default function FloatingTriangleGroup() {
-
+const FloatingTriangleGroup = () => {
   const windowSize: WindowSize = useWindowSize();
 
   const triangleNums = Math.floor(windowSize.width / 100);
@@ -44,3 +42,5 @@ export default function FloatingTriangleGroup() {
     </div>
   );
 }
+
+export default FloatingTriangleGroup;

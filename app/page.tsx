@@ -1,4 +1,4 @@
-import FloatingTriangleGroup from "@/components/FloatingTriangle/FloatingTriangleGroup";
+import dynamic from "next/dynamic";
 
 type MenuItem = {
   id: number;
@@ -6,6 +6,11 @@ type MenuItem = {
   href?: string;
   isDisabled: boolean;
 };
+
+const FloatingTriangleGroup = dynamic(
+  () => import("@/components/FloatingTriangle/FloatingTriangleGroup"),
+  { ssr: false }
+);
 
 const menuItems: ReadonlyArray<MenuItem> = Object.freeze([
   { id: 0, itemName: "About Me", href: "/about-me", isDisabled: false },
@@ -43,7 +48,7 @@ export default function Home() {
         </nav>
       </div>
       <div className="w-screen h-dvh absolute top-0 overflow-hidden">
-        <FloatingTriangleGroup/>
+        <FloatingTriangleGroup />
       </div>
     </div>
   );
