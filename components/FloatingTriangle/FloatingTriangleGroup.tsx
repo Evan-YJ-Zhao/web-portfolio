@@ -4,7 +4,6 @@ import useWindowSize, { WindowSize } from "@/hooks/useWindowSize";
 import { OptionalClassName } from "@/utils/commonTypes";
 import { getRandomIntByRange, rangeInclusive } from "@/utils/numbers";
 
-type FloatingTriangleGroupProps = OptionalClassName & {};
 
 type FloatingTriangleCSSProperties = React.CSSProperties & {
   "--angle-start": string;
@@ -16,7 +15,7 @@ type FloatingTriangleCSSProperties = React.CSSProperties & {
   "--size": string;
 };
 
-const FloatingTriangleGroup = ({ className }: FloatingTriangleGroupProps) => {
+const FloatingTriangleGroup = ({ className }: OptionalClassName) => {
   const windowSize: WindowSize = useWindowSize();
 
   const triangleNums = Math.floor(windowSize.width / 100);
