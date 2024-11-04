@@ -47,9 +47,9 @@ export default function Home() {
           </ul>
         </nav>
       </div>
-      <div className="w-screen h-dvh absolute top-0 overflow-hidden">
-        <FloatingTriangleGroup />
-      </div>
+      
+        <FloatingTriangleGroup className="w-screen h-dvh absolute top-0"/>
+      
     </div>
   );
 }

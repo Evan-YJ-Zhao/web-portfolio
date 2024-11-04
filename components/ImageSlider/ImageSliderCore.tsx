@@ -1,8 +1,8 @@
 import Image from "next/image";
 import images, { SliderImage } from "./ImageSliderImages";
+import { OptionalClassName } from "@/utils/commonTypes";
 
-type ImageSliderCoreProps = {
-  className?: string;
+type ImageSliderCoreProps = OptionalClassName & {
   focusPosition: number;
   itemPositionRotation: number;
   sliderRotation: number;

@@ -1,7 +1,7 @@
 import { memo, MouseEventHandler } from "react";
+import { OptionalClassName } from "@/utils/commonTypes";
 
-type ImageSliderControlsProps = {
-  className?: string;
+type ImageSliderControlsProps = OptionalClassName & {
   leftControlClickHandler: MouseEventHandler<HTMLButtonElement>;
   rightControlClickHandler: MouseEventHandler<HTMLButtonElement>;
 };
