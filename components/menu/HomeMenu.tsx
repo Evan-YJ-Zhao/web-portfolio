@@ -1,4 +1,4 @@
-import menuItems, { MenuItem } from "./MenuItems";
+import navLinks, { NavLink } from "./NavLinks";
 import { OptionalClassName } from "@/utils/commonTypes";
 
 const HomeMenu = ({ className }: OptionalClassName) => {
@@ -9,20 +9,20 @@ const HomeMenu = ({ className }: OptionalClassName) => {
           className="menu menu-lg bg-neutral rounded-box relative justify-center apply-border 
                         phone-sm:w-48 phone-lg:w-52 tablet:w-80 laptop:w-96"
         >
-          {menuItems.map((menuItem: MenuItem) => (
+          {navLinks.map((nav: NavLink) => (
             <li
-              key={menuItem.id}
-              className={menuItem.isDisabled ? "disabled" : ""}
+              key={nav.id}
+              className={nav.isDisabled ? "disabled" : ""}
             >
               <a
                 className={
-                  menuItem.isDisabled
+                  nav.isDisabled
                     ? "text-center font-bold font-mono block z-10 btn-main-menu-gray-effect"
                     : "text-center font-bold font-mono block z-10 btn-main-menu-gradient-effect"
                 }
-                href={menuItem.href}
+                href={nav.href}
               >
-                {menuItem.itemName}
+                {nav.name}
               </a>
             </li>
           ))}
