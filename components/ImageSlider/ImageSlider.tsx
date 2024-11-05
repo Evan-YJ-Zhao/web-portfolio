@@ -28,7 +28,7 @@ const ImageSlider = () => {
   }, []);
 
   return (
-    <div className="relative w-screen h-[38rem] overflow-hidden bg-neutral">
+    <div className="relative w-full h-full overflow-hidden bg-neutral">
       <ImageSliderCore
         className="relative w-[10rem] h-[13rem] left-[calc(50%-5rem)] top-[8rem] z-10"
         focusPosition={currentPos}

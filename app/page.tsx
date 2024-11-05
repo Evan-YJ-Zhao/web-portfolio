@@ -1,4 +1,4 @@
-import HomeMenu from "@/components/menu/HomeMenu";
+import HomeMenu from "@/components/Menu/HomeMenu";
 import dynamic from "next/dynamic";
 
 const FloatingTriangleGroup = dynamic(
