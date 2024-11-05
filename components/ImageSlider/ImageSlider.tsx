@@ -1,7 +1,7 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useCallback, useState } from "react";
-
 import images from "./ImageSliderImages";
 import ImageSliderControls from "./ImageSliderControls";
 import ImageSliderCore from "./ImageSliderCore";
@@ -28,20 +28,23 @@ const ImageSlider = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-full overflow-hidden bg-neutral">
+    <motion.div
+      className="relative w-full h-full overflow-hidden bg-neutral"
+      exit={{ opacity: 0, y: -50, transition: { duration: 0.3 } }}
+    >
       <ImageSliderCore
         className="relative w-[10rem] h-[13rem] left-[calc(50%-5rem)] top-[8rem] z-10"
         focusPosition={currentPos}
         itemPositionRotation={rotationDeg}
         sliderRotation={rotationY}
       />
-  
+
       <ImageSliderControls
         className="absolute left-[calc(50%-25%/2)] w-[25%] laptop:bottom-6 desktop-sm:bottom-4 desktop-lg:bottom-2"
         leftControlClickHandler={leftControlClickHandler}
         rightControlClickHandler={rightControlClickHandler}
       />
-    </div>
+    </motion.div>
   );
 };
 

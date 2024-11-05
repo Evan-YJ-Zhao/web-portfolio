@@ -16,7 +16,7 @@ const page = () => {
 
   return (
     <div>
-      <div className="relative w-screen h-[38rem]">
+      <div className="relative w-screen h-[38rem] bg-neutral">
         <AnimatePresence mode="wait">
           {showImageSlider ? <ImageSlider key="image-slider"/> : <TechStackPanel key="techstack-panel"/>}
         </AnimatePresence>
