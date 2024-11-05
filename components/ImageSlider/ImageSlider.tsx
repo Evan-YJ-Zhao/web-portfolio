@@ -35,7 +35,7 @@ const ImageSlider = () => {
         itemPositionRotation={rotationDeg}
         sliderRotation={rotationY}
       />
-
+  
       <ImageSliderControls
         className="absolute left-[calc(50%-25%/2)] w-[25%] laptop:bottom-6 desktop-sm:bottom-4 desktop-lg:bottom-2"
         leftControlClickHandler={leftControlClickHandler}

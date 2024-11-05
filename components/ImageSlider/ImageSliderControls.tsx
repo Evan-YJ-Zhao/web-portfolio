@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { memo, MouseEventHandler } from "react";
 import { OptionalClassName } from "@/utils/commonTypes";
 
@@ -14,7 +15,12 @@ const ImageSliderControls = memo(
     rightControlClickHandler,
   }: ImageSliderControlsProps) => {
     return (
-      <div className={`${className} flex justify-between items-center`}>
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -50, transition: {duration: 0.2} }}
+        className={`${className} flex justify-between items-center`}
+      >
         <button
           data-theme="cmyk"
           className="btn btn-circle hover:bg-primary border border-neutral"
@@ -29,7 +35,7 @@ const ImageSliderControls = memo(
         >
           &#x276F;
         </button>
-      </div>
+      </motion.div>
     );
   }
 );
