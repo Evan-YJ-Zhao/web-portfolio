@@ -1,5 +1,4 @@
 // common
-import switchImg from "@/public/images/common/switch.svg";
 
 // Icons 
 import awsImg from "@/public/images/techstack/aws_colored.svg";
@@ -42,7 +41,6 @@ export {
   reactImg,
   redisImg,
   splunkImg,
-  switchImg,
   tailwindCSSImg,
   typeScriptImg,
 };
