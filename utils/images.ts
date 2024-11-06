@@ -1,4 +1,11 @@
 // common
+import buildImg from "@/public/images/common/build.svg";
+import cloudImg from "@/public/images/common/cloud.svg";
+import codeBlockImg from "@/public/images/common/code_blocks.svg";
+import databaseImg from "@/public/images/common/database.svg";
+import frameSourceImg from "@/public/images/common/frame_source.svg";
+import outboxAltImg from "@/public/images/common/outbox_alt.svg";
+import queryStatsImg from "@/public/images/common/query_stats.svg";
 
 // Icons 
 import awsImg from "@/public/images/techstack/aws_colored.svg";
@@ -23,6 +30,14 @@ import tailwindCSSImg from "@/public/images/techstack/tailwindcss_colored.svg";
 import typeScriptImg from "@/public/images/techstack/typescript_colored.svg";
 
 export {
+  buildImg,
+  cloudImg,
+  codeBlockImg,
+  databaseImg,
+  frameSourceImg,
+  outboxAltImg,
+  queryStatsImg,
+
   awsImg,
   cloudflareImg,
   css3Img,
