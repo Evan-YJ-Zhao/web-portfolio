@@ -1,5 +1,5 @@
 import Image from "next/image";
-import images, { SliderImage } from "./ImageSliderImages";
+import images, { SliderImage } from "./ImageData";
 import { OptionalClassName } from "@/utils/commonTypes";
 
 type ImageSliderCoreProps = OptionalClassName & {
