@@ -58,15 +58,15 @@ const techStack: ReadonlyArray<TechInfo> = Object.freeze([
   { id: 5, name: "Messaging Queue", icon: outboxAltImg, techs: ["RabbitMQ"] },
   {
     id: 6,
-    name: "Development Tools",
-    icon: buildImg,
-    techs: ["Git", "Perforce", "Postman"],
-  },
-  {
-    id: 7,
     name: "Analytics Tools",
     icon: queryStatsImg,
     techs: ["Cloudwatch", "Splunk"],
+  },
+  {
+    id: 7,
+    name: "Development Tools",
+    icon: buildImg,
+    techs: ["Git", "Perforce", "Postman"],
   },
 ]);
 
