@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { memo, MouseEventHandler } from "react";
 import { OptionalClassName } from "@/utils/commonTypes";
 
-type ImageSliderControlsProps = OptionalClassName & {
+type Props = OptionalClassName & {
   leftControlClickHandler: MouseEventHandler<HTMLButtonElement>;
   rightControlClickHandler: MouseEventHandler<HTMLButtonElement>;
 };
@@ -13,7 +13,7 @@ const ImageSliderControls = memo(
     className,
     leftControlClickHandler,
     rightControlClickHandler,
-  }: ImageSliderControlsProps) => {
+  }: Props) => {
     return (
       <motion.div
         initial={{ opacity: 0, x: 50 }}

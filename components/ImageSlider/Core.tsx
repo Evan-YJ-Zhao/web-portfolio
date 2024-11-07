@@ -2,7 +2,7 @@ import Image from "next/image";
 import images, { SliderImage } from "./ImageData";
 import { OptionalClassName } from "@/utils/commonTypes";
 
-type ImageSliderCoreProps = OptionalClassName & {
+type Props = OptionalClassName & {
   focusPosition: number;
   itemPositionRotation: number;
   sliderRotation: number;
@@ -23,7 +23,7 @@ const ImageSliderCore = ({
   focusPosition,
   sliderRotation,
   itemPositionRotation,
-}: ImageSliderCoreProps) => {
+}: Props) => {
   return (
     <div
       className={`${className} apply-slider-animation`}
