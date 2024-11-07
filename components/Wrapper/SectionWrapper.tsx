@@ -2,12 +2,16 @@ import { OptionalClassName } from '@/utils/commonTypes'
 
 
 type Props = OptionalClassName & {
-  children: React.ReactNode
+  children: React.ReactNode;
+  title: string;
 } 
 
-const SectionWrapper = ({children, className} : Props) => {
+const SectionWrapper = ({children, className, title} : Props) => {
   return (
-    <div className={`${className}`}>{children}</div>
+    <section className={`${className}`}>
+      <h2 className="absolute">{title}</h2>
+      {children}
+    </section>
   )
 }
 

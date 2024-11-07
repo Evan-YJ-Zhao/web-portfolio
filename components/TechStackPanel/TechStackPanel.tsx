@@ -34,7 +34,7 @@ const listItemVariant = {
 
 const TechStackPanel = () => {
   return (
-    <div className="relative w-full h-full flex justify-center items-center overflow-hidden bg-neutral">
+    <div className="relative w-full h-full flex justify-center items-center">
       <motion.ul
         className="w-3/5 h-2/3"
         variants={listVariant}

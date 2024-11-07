@@ -15,7 +15,7 @@ const page = () => {
 
   return (
     <div>
-      <SectionWrapper className="relative w-screen h-[38rem] bg-neutral">
+      <SectionWrapper className="relative w-screen h-[38rem] bg-neutral overflow-hidden" title="Technical Skills">
         <AnimatePresence mode="wait">
           {showImageSlider ? (
             <ImageSlider key="image-slider" />

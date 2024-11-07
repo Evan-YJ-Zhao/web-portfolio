@@ -29,7 +29,7 @@ const ImageSlider = () => {
 
   return (
     <motion.div
-      className="relative w-full h-full overflow-hidden bg-neutral"
+      className="w-full h-full overflow-hidden"
       exit={{ opacity: 0, y: -50, transition: { duration: 0.3 } }}
     >
       <Core
