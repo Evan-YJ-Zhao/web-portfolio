@@ -15,7 +15,11 @@
 
 @layer utilities {
   .apply-border {
-    @apply overflow-hidden;
+    @apply overflow-hidden shadow-2xl;
+  }
+
+  .apply-border:hover {
+    @apply border-2 border-primary;
   }
 
   .apply-border::before {

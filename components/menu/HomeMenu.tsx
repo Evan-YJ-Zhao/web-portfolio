@@ -6,7 +6,7 @@ const HomeMenu = ({ className }: OptionalClassName) => {
     <div className={`${className}`}>
       <nav>
         <ul
-          className="menu menu-lg bg-neutral rounded-box relative justify-center apply-border 
+          className="menu menu-lg bg-neutral rounded-box relative justify-center apply-border
                         phone-sm:w-48 phone-lg:w-52 tablet:w-80 laptop:w-96"
         >
           {navLinks.map((nav: NavLink) => (
