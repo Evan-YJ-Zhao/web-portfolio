@@ -13,7 +13,11 @@ const config: Config = {
       {
         lofi: {
           ...require("daisyui/src/theming/themes")["lofi"],
-          neutral: "#E5E5E5",
+          primary: "#333333",
+          secondary: "#4F4F4F",
+          accent: "#666666",
+          neutral: "#FAFAFA",
+          "base-100": "#FAFAFA",
         },
       },
       "cmyk"

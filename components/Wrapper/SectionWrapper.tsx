@@ -15,7 +15,7 @@ const SectionWrapper = ({ children, className, title }: Props) => {
         initial={{opacity: 0, x: -50}}
         animate={{opacity: 1, x: 0}}
       >
-        <h2 className="m-1 font-bold text-lg text-wrap">{title}</h2>
+        <h2 className="m-1 font-bold text-secondary text-lg text-wrap">{title}</h2>
       </motion.div>
 
       {children}
