@@ -10,7 +10,7 @@ const NavBar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 pt-0 pb-0">
       <div className="flex-1 pl-[2%]">
         <a className="relative btn btn-ghost w-[5%] p-0" href="/">
           <Image src={homeImg} alt="Home" fill />

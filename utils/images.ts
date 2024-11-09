@@ -13,6 +13,7 @@ import awsImg from "@/public/images/techstack/aws_colored.svg";
 import cloudflareImg from "@/public/images/techstack/cloudflare.svg";
 import css3Img from "@/public/images/techstack/css3_colored.svg";
 import dockerImg from "@/public/images/techstack/docker_colored.svg";
+import framerMotionImg from "@/public/images/techstack/framer_motion.svg";
 import githubImg from "@/public/images/techstack/github.svg"
 import googlecloudImg from "@/public/images/techstack/googlecloud_colored.svg";
 import html5Img from "@/public/images/techstack/html5_colored.svg";
@@ -44,6 +45,7 @@ export {
   cloudflareImg,
   css3Img,
   dockerImg,
+  framerMotionImg,
   githubImg,
   googlecloudImg,
   html5Img,

@@ -27,7 +27,7 @@ const page = () => {
           )}
         </AnimatePresence>
 
-        <div className="absolute bottom-0 right-0">
+        <div className="absolute bottom-0 right-[2%]">
           <motion.button
             className="w-10 h-10 m-4"
             onClick={imageSwitchButtonOnClickHandler}
