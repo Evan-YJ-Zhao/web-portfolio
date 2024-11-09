@@ -9,7 +9,7 @@ type FloatingTriangleCSSProperties = React.CSSProperties & {
   "--angle-end": string;
   "--border-radius": string;
   "--bottom": string;
-  "--delay-by-second": string; 
+  "--delay-by-second": string;
   "--floating-duration": string;
   "--left": string;
   "--size": string;
@@ -17,9 +17,9 @@ type FloatingTriangleCSSProperties = React.CSSProperties & {
 };
 
 const FloatingTriangleGroup = ({ className }: OptionalClassName) => {
-  const windowSize: WindowSize = useWindowSize();
+  const { width } = useWindowSize();
 
-  const triangleNums = Math.floor(windowSize.width / 100);
+  const triangleNums = Math.floor(width / 100);
   const range = Math.ceil(100 / triangleNums);
 
   return (
@@ -33,11 +33,11 @@ const FloatingTriangleGroup = ({ className }: OptionalClassName) => {
           "--angle-end": `${getRandomIntByRange(90, 140)}deg`,
           "--left": `${getRandomIntByRange(start, end)}%`,
           "--bottom": `${i == 0 ? -10 : getRandomIntByRange(-25, -10)}rem`,
-          "--delay-by-second": `${i == 0 ? 0 : getRandomIntByRange(0,20)}s`,
+          "--delay-by-second": `${i == 0 ? 0 : getRandomIntByRange(0, 20)}s`,
           "--size": `${getRandomIntByRange(2, 8)}rem`,
           "--border-radius": `${getRandomIntByRange(5, 30)}%`,
           "--floating-duration": `${getRandomIntByRange(10, 20)}s`,
-          "--translate-by-dvh": `${getRandomIntByRange(-230, -125)}dvh`
+          "--translate-by-dvh": `${getRandomIntByRange(-230, -125)}dvh`,
         };
 
         return (
