@@ -44,6 +44,7 @@ const TechStackPanel = () => {
       >
         {techStack.map((t: TechInfo) => (
           <motion.li
+            key={t.id}
             className="flex w-full h-[calc(100%/7)] mt-2 mb-2 border-2 border-primary rounded-lg shadow-md"
             variants={listItemVariant}
           >
