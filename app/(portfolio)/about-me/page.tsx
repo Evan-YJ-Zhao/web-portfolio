@@ -14,8 +14,11 @@ const page = () => {
   };
 
   return (
-    <div>
-      <SectionWrapper className="relative w-screen h-[38rem] bg-neutral overflow-hidden" title="Technical Skills">
+    <>
+      <SectionWrapper
+        className="relative w-screen h-[36rem] bg-neutral overflow-hidden"
+        title="Technical Skills"
+      >
         <AnimatePresence mode="wait">
           {showImageSlider ? (
             <ImageSlider key="image-slider" />
@@ -48,7 +51,7 @@ const page = () => {
           </motion.button>
         </div>
       </SectionWrapper>
-    </div>
+    </>
   );
 };
 

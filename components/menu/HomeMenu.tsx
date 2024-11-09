@@ -1,3 +1,4 @@
+import Link from "next/link";
 import navLinks, { NavLink } from "./NavLinks";
 import { OptionalClassName } from "@/utils/commonTypes";
 
@@ -14,7 +15,7 @@ const HomeMenu = ({ className }: OptionalClassName) => {
               key={nav.id}
               className={nav.isDisabled ? "disabled" : ""}
             >
-              <a
+              <Link
                 className={
                   nav.isDisabled
                     ? "text-center font-bold font-mono block z-10 btn-main-menu-gray-effect"
@@ -23,7 +24,7 @@ const HomeMenu = ({ className }: OptionalClassName) => {
                 href={nav.href}
               >
                 {nav.name}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

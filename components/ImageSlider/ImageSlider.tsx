@@ -33,14 +33,14 @@ const ImageSlider = () => {
       exit={{ opacity: 0, y: -50, transition: { duration: 0.3 } }}
     >
       <Core
-        className="relative w-[10rem] h-[13rem] left-[calc(50%-5rem)] top-[8rem] z-10"
+        className="relative w-[10rem] h-[13rem] left-[calc(50%-5rem)] top-[12%] z-10"
         focusPosition={currentPos}
         itemPositionRotation={rotationDeg}
         sliderRotation={rotationY}
       />
 
       <Controls
-        className="absolute left-[calc(50%-25%/2)] w-[25%] laptop:bottom-6 desktop-sm:bottom-4 desktop-lg:bottom-2"
+        className="absolute left-[calc(50%-25%/2)] w-[25%] laptop:bottom-8 desktop-sm:bottom-6 desktop-lg:bottom-5"
         leftControlClickHandler={leftControlClickHandler}
         rightControlClickHandler={rightControlClickHandler}
       />
