@@ -19,7 +19,7 @@
   }
 
   .apply-border:hover {
-    @apply border-2 border-primary;
+    @apply border-2 border-primary m-[-2px];
   }
 
   .apply-border::before {
