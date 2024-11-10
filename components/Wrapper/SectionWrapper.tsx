@@ -11,7 +11,7 @@ const SectionWrapper = ({ children, className, title }: Props) => {
     <section className={`${className}`}>
       <motion.div
         className="absolute left-[4%] top-[4%] max-w-[10%] max-h-[10%] 
-          border border-primary rounded-lg box-content shadow-md overflow-hidden z-[1]"
+          border-2 border-primary rounded-lg box-content shadow-md overflow-hidden z-[1]"
         initial={{opacity: 0, x: -50}}
         animate={{opacity: 1, x: 0}}
       >
