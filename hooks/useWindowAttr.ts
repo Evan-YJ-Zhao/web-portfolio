@@ -5,10 +5,16 @@ type WindowSize = {
   height: number;
 };
 
-function useWindowSize(): WindowSize {
+type WindowAttr = {
+  isInClient: boolean;
+  windowSize: WindowSize;
+};
+
+function useWindowAttr(): WindowAttr {
+  const [isInClient, setIsInClient] = useState<boolean>(false);
   const [windowSize, setWindowSize] = useState<WindowSize>({
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: 0,
+    height: 0,
   });
 
   useEffect(() => {
@@ -19,14 +25,19 @@ function useWindowSize(): WindowSize {
       });
     };
 
+    if (!isInClient) {
+      setIsInClient(true);
+      handleResize();
+    }
+
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
 
-  return windowSize;
+  return { isInClient, windowSize };
 }
 
-export type { WindowSize };
-export default useWindowSize;
+export type { WindowAttr };
+export default useWindowAttr;

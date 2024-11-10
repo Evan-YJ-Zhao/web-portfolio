@@ -1,10 +1,5 @@
+import FloatingTriangleGroup from "@/components/FloatingTriangle/FloatingTriangleGroup";
 import HomeMenu from "@/components/Menu/HomeMenu";
-import dynamic from "next/dynamic";
-
-const FloatingTriangleGroup = dynamic(
-  () => import("@/components/FloatingTriangle/FloatingTriangleGroup"),
-  { ssr: false }
-);
 
 export default function Home() {
   return (

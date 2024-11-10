@@ -1,8 +1,9 @@
 "use client";
 
-import useWindowSize, { WindowSize } from "@/hooks/useWindowSize";
+import useWindowAttr from "@/hooks/useWindowAttr";
 import { OptionalClassName } from "@/utils/commonTypes";
 import { getRandomIntByRange, rangeInclusive } from "@/utils/numbers";
+import { useEffect, useState } from "react";
 
 type FloatingTriangleCSSProperties = React.CSSProperties & {
   "--angle-start": string;
@@ -17,13 +18,19 @@ type FloatingTriangleCSSProperties = React.CSSProperties & {
 };
 
 const FloatingTriangleGroup = ({ className }: OptionalClassName) => {
-  const { width } = useWindowSize();
+  const { isInClient, windowSize } = useWindowAttr();
+  const { width } = windowSize;
+
+  if (!isInClient) {
+    return null;
+  }
 
   const triangleNums = Math.floor(width / 100);
-  const range = Math.ceil(100 / triangleNums);
+  const range = triangleNums != 0 ? Math.ceil(100 / triangleNums) : 0;
 
   return (
     <div className={`${className} overflow-hidden`}>
+      {/* if trianglenNums - 1 < 0, this will return an empty list */}
       {rangeInclusive(0, triangleNums - 1).map((i: number) => {
         const key = `tri-${i}`;
         const start = range * i;
