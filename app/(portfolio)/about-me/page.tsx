@@ -3,11 +3,27 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import ImageSlider from "@/components/ImageSlider/ImageSlider";
-import TechStackPanel from "@/components/TechStackPanel/TechStackPanel";
 import SectionWrapper from "@/components/Wrapper/SectionWrapper";
+import TechStackPanel from "@/components/TechStackPanel/TechStackPanel";
+import useWindowAttr from "@/hooks/useWindowAttr";
 
 const page = () => {
   const [showImageSlider, setShowImageSlider] = useState(true);
+  const { isInClient, windowSize } = useWindowAttr();
+  const { width } = windowSize;
+
+  if(!isInClient){
+    return null;
+  }else if(width < 1024){
+    // mobile view
+    return (
+      <>
+        <SectionWrapper className="relative w-screen bg-neutral" title="Technical Skills">
+          <div></div>
+        </SectionWrapper>
+      </>
+    );
+  }
 
   const imageSwitchButtonOnClickHandler = () => {
     setShowImageSlider((prev) => !prev);

@@ -10,20 +10,20 @@ const NavBar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="navbar bg-base-100 pt-0 pb-0">
+    <div className="navbar bg-base-100 py-0">
       <div className="flex-1 pl-[2%]">
-        <a className="relative btn btn-ghost w-[5%] p-0" href="/">
+        <a className="relative btn btn-ghost phone-sm:w-[10%] tablet:w-[5%] p-0" href="/">
           <Image src={homeImg} alt="Home" fill />
         </a>
       </div>
-      <div className="flex-none pr-[2%]">
+      <div className="flex-none laptop:pr-[2%]">
         <ul className="menu menu-horizontal px-1">
           {navLinks.map(
             (n: NavLink) =>
               n.href !== pathname &&
               !n.isDisabled && (
                 <li key={n.id}>
-                  <Link className="text-base font-bold" href={n.href}>{n.name}</Link>
+                  <Link className="phone-sm:max-laptop:px-1 laptop:text-base font-bold" href={n.href}>{n.name}</Link>
                 </li>
               )
           )}
