@@ -3,7 +3,6 @@
 import useWindowAttr from "@/hooks/useWindowAttr";
 import { OptionalClassName } from "@/utils/commonTypes";
 import { getRandomIntByRange, rangeInclusive } from "@/utils/numbers";
-import { useEffect, useState } from "react";
 
 type FloatingTriangleCSSProperties = React.CSSProperties & {
   "--angle-start": string;
