@@ -18,7 +18,7 @@ const page = () => {
     // mobile view
     return (
       <>
-        <SectionWrapper className="relative w-screen bg-neutral" title="Technical Skills">
+        <SectionWrapper className="relative w-full h-dvh bg-neutral" title="SKILLS" titlePosition="center">
           <div></div>
         </SectionWrapper>
       </>
@@ -32,8 +32,9 @@ const page = () => {
   return (
     <>
       <SectionWrapper
-        className="relative w-screen h-[36rem] bg-neutral overflow-hidden"
+        className="relative w-full h-[36rem] bg-neutral overflow-hidden"
         title="Technical Skills"
+        titlePosition="left"
       >
         <AnimatePresence mode="wait">
           {showImageSlider ? (

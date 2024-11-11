@@ -12,7 +12,7 @@ const NavBar = () => {
   return (
     <div className="navbar bg-base-100 py-0">
       <div className="flex-1 pl-[2%]">
-        <a className="relative btn btn-ghost phone-sm:w-[10%] tablet:w-[5%] p-0" href="/">
+        <a className="relative btn btn-ghost w-[20%] phone-sm:w-[10%] tablet:w-[5%] p-0" href="/">
           <Image src={homeImg} alt="Home" fill />
         </a>
       </div>
