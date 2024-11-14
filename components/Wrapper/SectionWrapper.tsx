@@ -7,29 +7,35 @@ type Props = OptionalClassName & {
   titlePosition: "left" | "center" | "right";
 };
 
-const SectionWrapper = ({ children, className, title, titlePosition }: Props) => {
-  let justifyAt = "";
-  let shiftByMargin = "";
+const SectionWrapper = ({
+  children,
+  className,
+  title,
+  titlePosition,
+}: Props) => {
+  let justifyAt = "justify-start";
+  let shiftByMargin = "ml-[4%]";
+  let position = "absolute"
 
-  switch(titlePosition){
+  switch (titlePosition) {
     case "center":
       justifyAt = "justify-center";
+      shiftByMargin = "";
+      position = "relative";
       break;
     case "right":
       justifyAt = "justify-end";
       shiftByMargin = "mr-[4%]";
       break;
     default:
-      justifyAt = "justify-start";
-      shiftByMargin = "ml-[4%]";
-      break 
+      break;
   }
 
   return (
     <section className={`${className}`}>
       <div className={`relative flex ${justifyAt}`}>
         <motion.div
-          className={`absolute ${shiftByMargin}
+          className={`${position} ${shiftByMargin}
           tablet:top-1 desktop-sm:top-4
           border tablet:border-1 desktop-sm:border-2 border-primary 
           rounded-lg box-content shadow-md overflow-hidden z-[1]`}

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import images, { SliderImage } from "./ImageData";
+import images, { TechStackImage } from "../ImageData";
 import { OptionalClassName } from "@/utils/commonTypes";
 
 type Props = OptionalClassName & {
@@ -18,7 +18,7 @@ type ImageSliderItemCSSProperties = React.CSSProperties & {
 };
 
 // The main component of the image slider.
-const ImageSliderCore = ({
+const Core = ({
   className,
   focusPosition,
   sliderRotation,
@@ -33,26 +33,26 @@ const ImageSliderCore = ({
         } as ImageSliderCSSProperties
       }
     >
-      {images.map((s: SliderImage) => {
-        const position = s.id;
+      {images.map((img: TechStackImage) => {
+        const position = img.id;
 
         const style: ImageSliderItemCSSProperties = {
           "--slider-item-position-degree": position * itemPositionRotation,
-          "--slider-item-scale": s.id == focusPosition ? 1.2 : 1,
+          "--slider-item-scale": img.id == focusPosition ? 1.2 : 1,
         };
 
         return (
           <div
             data-theme="cmyk"
-            key={s.id}
+            key={img.id}
             className="absolute inset-0 transform-slider-item border border-primary"
             style={style}
           >
             <Image
-              src={s.image}
-              alt={s.description}
+              src={img.image}
+              alt={img.description}
               fill
-              priority={s.priority}
+              priority={img.priority}
             />
           </div>
         );
@@ -61,4 +61,4 @@ const ImageSliderCore = ({
   );
 };
 
-export default ImageSliderCore;
+export default Core;

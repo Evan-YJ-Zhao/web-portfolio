@@ -13,14 +13,14 @@ import {
   typeScriptImg,
 } from "@/utils/images";
 
-type SliderImage = {
+type TechStackImage = {
   id: number;
   image: StaticImageData;
   description: string;
-  priority: boolean;
+  priority?: boolean;
 };
 
-const images: ReadonlyArray<SliderImage> = Object.freeze([
+const images: ReadonlyArray<TechStackImage> = Object.freeze([
   { id: 0, image: awsImg, description: "An image of AWS", priority: true },
   {
     id: 1,
@@ -84,5 +84,5 @@ const images: ReadonlyArray<SliderImage> = Object.freeze([
   },
 ]);
 
-export type { SliderImage };
+export type { TechStackImage };
 export default images;

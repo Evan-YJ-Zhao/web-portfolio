@@ -2,14 +2,15 @@
 
 import { motion } from "framer-motion";
 import { useCallback, useState } from "react";
-import images from "./ImageData";
-import Controls from "./Controls";
-import Core from "./Core";
+import images from "../ImageData";
+import ImageSliderControls from "./Controls";
+import ImageSliderCore from "./Core";
 
 const totalImages = images.length;
 const rotationDeg = 360 / totalImages;
 
-const ImageSlider = () => {
+// Showcase the techstack (skills) used to build this site.
+const TechStackImageSlider = () => {
   const [rotationY, setRotationY] = useState(0);
   const [currentPos, setCurrentPos] = useState(0);
 
@@ -32,14 +33,14 @@ const ImageSlider = () => {
       className="w-full h-full overflow-hidden"
       exit={{ opacity: 0, y: -50, transition: { duration: 0.3 } }}
     >
-      <Core
+      <ImageSliderCore
         className="relative w-[10rem] h-[13rem] left-[calc(50%-5rem)] top-[12%] z-10"
         focusPosition={currentPos}
         itemPositionRotation={rotationDeg}
         sliderRotation={rotationY}
       />
 
-      <Controls
+      <ImageSliderControls
         className="absolute left-[calc(50%-25%/2)] w-[25%] laptop:bottom-8 desktop-sm:bottom-6 desktop-lg:bottom-5"
         leftControlClickHandler={leftControlClickHandler}
         rightControlClickHandler={rightControlClickHandler}
@@ -48,4 +49,4 @@ const ImageSlider = () => {
   );
 };
 
-export default ImageSlider;
+export default TechStackImageSlider;

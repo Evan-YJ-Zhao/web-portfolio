@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-import techStack, { TechInfo } from "./TechStackData";
+import techStack, { TechInfo } from "./TechSkillsData";
 
 const listVariant = {
   hidden: { opacity: 0 },
@@ -32,7 +32,8 @@ const listItemVariant = {
   },
 };
 
-const TechStackPanel = () => {
+// To showcase a more detailed list of my skills
+const TechSkillsPanel = () => {
   return (
     <div className="w-full h-full flex justify-center items-center">
       <motion.ul
@@ -64,4 +65,4 @@ const TechStackPanel = () => {
   );
 };
 
-export default TechStackPanel;
+export default TechSkillsPanel;

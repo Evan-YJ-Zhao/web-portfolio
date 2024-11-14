@@ -2,11 +2,12 @@
 
 import { AnimatePresence } from "framer-motion";
 import { useCallback, useState } from "react";
-import ImageSlider from "@/components/ImageSlider/ImageSlider";
 import SectionWrapper from "@/components/Wrapper/SectionWrapper";
 import SwitchMotionButton from "@/components/MotionButton/SwitchMotionButton";
-import TechStackPanel from "@/components/TechStackPanel/TechStackPanel";
+import TechSkillsPanel from "@/components/TechSkills/TechSkillsPanel";
+import TechStackImageSlider from "@/components/TechStack/ImageSlider/TechStackImageSlider";
 import useWindowAttr from "@/hooks/useWindowAttr";
+import TechStackImagePanel from "@/components/TechStack/ImagePanel/TechStackImagePanel";
 
 const page = () => {
   const [showImageSlider, setShowImageSlider] = useState(true);
@@ -24,11 +25,11 @@ const page = () => {
     return (
       <>
         <SectionWrapper
-          className="relative w-full h-dvh bg-neutral"
+          className="relative w-full h-1/3 bg-neutral"
           title="SKILLS"
           titlePosition="center"
         >
-          <div></div>
+          <TechStackImagePanel />
         </SectionWrapper>
       </>
     );
@@ -43,9 +44,9 @@ const page = () => {
       >
         <AnimatePresence mode="wait">
           {showImageSlider ? (
-            <ImageSlider key="image-slider" />
+            <TechStackImageSlider key="image-slider" />
           ) : (
-            <TechStackPanel key="techstack-panel" />
+            <TechSkillsPanel key="techstack-panel" />
           )}
         </AnimatePresence>
 

@@ -8,7 +8,7 @@ type Props = OptionalClassName & {
 };
 
 // Controls the image slider
-const ImageSliderControls = memo(
+const Controls = memo(
   ({
     className,
     leftControlClickHandler,
@@ -39,4 +39,4 @@ const ImageSliderControls = memo(
   }
 );
 
-export default ImageSliderControls;
+export default Controls;
