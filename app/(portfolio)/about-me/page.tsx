@@ -29,7 +29,7 @@ const page = () => {
           title="SKILLS"
           titlePosition="center"
         >
-          <TechStackImagePanel numItemPerRow={4}/>
+          <TechStackImagePanel key="techstack-panel" numItemPerRow={4}/>
         </SectionWrapper>
       </>
     );
@@ -44,9 +44,9 @@ const page = () => {
       >
         <AnimatePresence mode="wait">
           {showImageSlider ? (
-            <TechStackImageSlider key="image-slider" />
+            <TechStackImageSlider key="techstack-slider" />
           ) : (
-            <TechSkillsPanel key="techstack-panel" />
+            <TechSkillsPanel key="techskill-panel" />
           )}
         </AnimatePresence>
 
