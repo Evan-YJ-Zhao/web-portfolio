@@ -25,11 +25,11 @@ const page = () => {
     return (
       <>
         <SectionWrapper
-          className="relative w-full h-1/3 bg-neutral"
+          className="relative w-full bg-neutral"
           title="SKILLS"
           titlePosition="center"
         >
-          <TechStackImagePanel />
+          <TechStackImagePanel numItemPerRow={4}/>
         </SectionWrapper>
       </>
     );
