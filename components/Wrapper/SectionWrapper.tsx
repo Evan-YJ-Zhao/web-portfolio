@@ -15,7 +15,7 @@ const SectionWrapper = ({
 }: Props) => {
   let justifyAt = "justify-start";
   let shiftByMargin = "ml-[4%]";
-  let position = "absolute"
+  let position = "absolute";
 
   switch (titlePosition) {
     case "center":
@@ -53,6 +53,11 @@ const SectionWrapper = ({
       </div>
 
       {children}
+      <div
+        className="absolute w-full h-[1px] laptop:h-[2px] bottom-0 mx-auto bg-gradient-to-r 
+        from-transparent via-primary to-transparent 
+        laptop:from-15% laptop:via-50% laptop:to-85%"
+      />
     </section>
   );
 };

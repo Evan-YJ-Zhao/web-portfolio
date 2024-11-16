@@ -54,7 +54,7 @@ const TechStackImagePanel = ({ numItemPerRow }: Props) => {
           grid ${gridCols}
           gap-2 phone-lg:gap-3 tablet:gap-4
           p-2 phone-lg:p-3 tablet:p-4
-          justify-items-center`}
+          mb-2 justify-items-center`}
         variants={panelVariant}
         initial="hidden"
         animate="visible"
