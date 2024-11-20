@@ -6,8 +6,11 @@ import SectionWrapper from "@/components/Wrapper/SectionWrapper";
 import SwitchMotionButton from "@/components/MotionButton/SwitchMotionButton";
 import TechSkillsPanel from "@/components/TechSkills/TechSkillsPanel";
 import TechStackImageSlider from "@/components/TechStack/ImageSlider/TechStackImageSlider";
-import useWindowAttr from "@/hooks/useWindowAttr";
 import TechStackImagePanel from "@/components/TechStack/ImagePanel/TechStackImagePanel";
+import Timeline from "@/components/Timeline/Timeline";
+import useWindowAttr from "@/hooks/useWindowAttr";
+
+const laptopViewWidth = 1024;
 
 const page = () => {
   const [showImageSlider, setShowImageSlider] = useState(true);
@@ -20,40 +23,42 @@ const page = () => {
 
   if (!isInClient) {
     return null;
-  } else if (width < 1024) {
-    // mobile view
-    return (
-      <>
+  } 
+
+  return (
+    <>
+      {width < laptopViewWidth ? (
+        // mobile view
         <SectionWrapper
           className="relative w-full bg-neutral"
           title="SKILLS"
           titlePosition="center"
         >
-          <TechStackImagePanel key="techstack-panel" numItemPerRow={4}/>
+          <TechStackImagePanel key="techstack-panel" numItemPerRow={4} />
         </SectionWrapper>
-      </>
-    );
-  }
+      ) : (
+        // laptop+ view
+        <SectionWrapper
+          className="relative w-full h-[36rem] bg-neutral overflow-hidden"
+          title="Technical Skills"
+          titlePosition="left"
+        >
+          <AnimatePresence mode="wait">
+            {showImageSlider ? (
+              <TechStackImageSlider key="techstack-slider" />
+            ) : (
+              <TechSkillsPanel key="techskill-panel" />
+            )}
+          </AnimatePresence>
 
-  return (
-    <>
-      <SectionWrapper
-        className="relative w-full h-[36rem] bg-neutral overflow-hidden"
-        title="Technical Skills"
-        titlePosition="left"
-      >
-        <AnimatePresence mode="wait">
-          {showImageSlider ? (
-            <TechStackImageSlider key="techstack-slider" />
-          ) : (
-            <TechSkillsPanel key="techskill-panel" />
-          )}
-        </AnimatePresence>
-
-        <SwitchMotionButton
-          className="absolute bottom-0 right-[2%]"
-          clickHandler={imageSwitchButtonOnClickHandler}
-        />
+          <SwitchMotionButton
+            className="absolute bottom-0 right-[2%]"
+            clickHandler={imageSwitchButtonOnClickHandler}
+          />
+        </SectionWrapper>
+      )}
+      <SectionWrapper title="Experience" titlePosition={width < laptopViewWidth ? "center" : "left"}>
+        <Timeline />
       </SectionWrapper>
     </>
   );
