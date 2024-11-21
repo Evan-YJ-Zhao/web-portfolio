@@ -1,61 +1,37 @@
 import TimelineCheckMarkSVG from "./TimelineCheckMarkSVG";
+import timelineExperience, { TimelineExperience } from "./TimelineData";
 
 const Timeline = () => {
   return (
     <div className="mt-12 w-4/6 justify-self-center flex justify-start">
       <ul className="timeline timeline-vertical [--timeline-col-start:auto]">
-        <li>
-          <div className="timeline-start min-w-20 text-end">05/2019</div>
-          <div className="timeline-middle">
-            <TimelineCheckMarkSVG />
-          </div>
-          <div className="timeline-end timeline-box">
-          <div className="text-lg font-black">First Macintosh computer</div>
-          <div className="text-md italic">First Macintosh computer</div>
-
-            First Macintosh computer ntosh computer First Macintntosh computer
-            First Macintntosh computer First Macintntosh computer First
-            Macintntosh computer First Macintntosh computer First Macintntosh
-            computer First MacintFirst Macintosh computerFirst Macintosh
-            computerFirst Macintosh computerFirst Macintosh computer
-          </div>
-          <hr />
-        </li>
-        <li>
-          <hr />
-          <div className="timeline-start min-w-20 text-end">1998</div>
-          <div className="timeline-middle">
-            <TimelineCheckMarkSVG />
-          </div>
-          <div className="timeline-end timeline-box">iMac</div>
-          <hr />
-        </li>
-        <li>
-          <hr />
-          <div className="timeline-start">2001</div>
-          <div className="timeline-middle">
-            <TimelineCheckMarkSVG />
-          </div>
-          <div className="timeline-end timeline-box">iPod</div>
-          <hr />
-        </li>
-        <li>
-          <hr />
-          <div className="timeline-start">2007</div>
-          <div className="timeline-middle">
-            <TimelineCheckMarkSVG />
-          </div>
-          <div className="timeline-end timeline-box">iPhone</div>
-          <hr />
-        </li>
-        <li>
-          <hr />
-          <div className="timeline-start">2015</div>
-          <div className="timeline-middle">
-            <TimelineCheckMarkSVG />
-          </div>
-          <div className="timeline-end timeline-box">Apple Watch</div>
-        </li>
+        {timelineExperience.map((exp: TimelineExperience) => (
+          <li key={exp.id}>
+            <hr />
+            <div className="timeline-start min-w-20 text-end">
+              {exp.startDate}
+            </div>
+            <div className="timeline-middle">
+              <TimelineCheckMarkSVG />
+            </div>
+            <div className="timeline-end timeline-box">
+              {exp.title && (
+                <div className="text-lg font-black">{exp.title}</div>
+              )}
+              <div className="text-md italic">
+                {exp.organization}, Completed in {exp.endDate}
+              </div>
+              {exp.descriptions.map((description) => (
+                <>
+                  &#x2022; {description}
+                  <br />
+                </>
+              ))}
+            </div>
+            <hr />
+          </li>
+        ))}
+        ;
       </ul>
     </div>
   );
