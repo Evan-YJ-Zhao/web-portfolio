@@ -57,7 +57,7 @@ const page = () => {
           />
         </SectionWrapper>
       )}
-      <SectionWrapper title="Experience" titlePosition={width < laptopViewWidth ? "center" : "left"}>
+      <SectionWrapper className="w-full" title="Experience" titlePosition={width < laptopViewWidth ? "center" : "left"}>
         <Timeline />
       </SectionWrapper>
     </>

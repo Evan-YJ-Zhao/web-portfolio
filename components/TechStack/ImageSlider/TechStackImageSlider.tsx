@@ -11,8 +11,8 @@ const rotationDeg = 360 / totalImages;
 
 // Showcase the techstack (skills) used to build this site.
 const TechStackImageSlider = () => {
-  const [rotationY, setRotationY] = useState(0);
-  const [currentPos, setCurrentPos] = useState(0);
+  const [rotationY, setRotationY] = useState<number>(0);
+  const [currentPos, setCurrentPos] = useState<number>(0);
 
   const leftControlClickHandler = useCallback(() => {
     setRotationY((prev) => prev + rotationDeg);
