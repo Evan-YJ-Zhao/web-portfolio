@@ -38,7 +38,7 @@ const Timeline = () => {
   const isSelected = (id: number) => id == selectedExp;
 
   return (
-    <div className="mt-12 mb-8 desktop-sm:mx-20 flex justify-evenly">
+    <div className="mt-12 mb-8 tablet:mx-5 desktop-sm:mx-20 flex justify-evenly">
       <div className="flex justify-start">
         <ul className="timeline timeline-vertical [--timeline-col-start:auto]">
           {timelineExperience.map((exp: TimelineExperience, index: number) => (
@@ -48,7 +48,7 @@ const Timeline = () => {
               onClick={expSummaryClickHandler(exp.id)}
             >
               {index != 0 && <hr className="bg-primary" />}
-              <div className="timeline-start min-w-20 text-end">
+              <div className="timeline-start min-w-20 text-end max-laptop:hidden">
                 {exp.startDate}
               </div>
               <div
