@@ -1,5 +1,5 @@
 type TimelineExperience = {
-  readonly id: number;
+  readonly id: number; // id must be positive
   startDate: string;
   endDate: string;
   organization: string;
