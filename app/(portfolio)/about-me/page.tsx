@@ -9,8 +9,10 @@ import TechStackImageSlider from "@/components/TechStack/ImageSlider/TechStackIm
 import TechStackImagePanel from "@/components/TechStack/ImagePanel/TechStackImagePanel";
 import Timeline from "@/components/Timeline/Timeline";
 import useWindowAttr from "@/hooks/useWindowAttr";
+import TimelineMobile from "@/components/Timeline/TimelineMobile";
 
 const laptopViewWidth = 1024;
+const tabletViewWidth = 768;
 
 const page = () => {
   const [showImageSlider, setShowImageSlider] = useState(true);
@@ -58,7 +60,8 @@ const page = () => {
         </SectionWrapper>
       )}
       <SectionWrapper className="w-full" title="Experience" titlePosition={width < laptopViewWidth ? "center" : "left"}>
-        <Timeline />
+        {width < tabletViewWidth ? <TimelineMobile /> : <Timeline />}
+       
       </SectionWrapper>
     </>
   );

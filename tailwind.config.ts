@@ -37,7 +37,8 @@ const config: Config = {
     screens: {
       "phone-sm": "320px",
       "phone-lg": "425px",
-      tablet: "640px",
+      "phone-xl": "640px",
+      tablet: "768px",
       laptop: "1024px",
       "desktop-sm": "1280px",
       "desktop-lg": "1440px"
