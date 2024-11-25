@@ -13,7 +13,7 @@ const TimelineMobile = () => {
 
   const expDetailModalClickHandler = () => {
     setSelectedExp(-1);
-  }
+  };
 
   const isSelected = (id: number) => id == selectedExp;
 
@@ -64,15 +64,20 @@ const TimelineMobile = () => {
           <div className="modal-box">
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}
-              <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={expDetailModalClickHandler}>
+              <button
+                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                onClick={expDetailModalClickHandler}
+              >
                 ✕
               </button>
             </form>
             <h3 className="font-bold text-lg">{exp.title}</h3>
             {exp.descriptions.map((description, index) => (
-              <p key={`exp-detail-list-item-${exp.id}-${index}`} className="py-4">{`${index + 1}) ${description}`}</p>
+              <p
+                key={`exp-detail-list-item-${exp.id}-${index}`}
+                className="py-4"
+              >{`${index + 1}) ${description}`}</p>
             ))}
-            
           </div>
           <form method="dialog" className="modal-backdrop">
             <button onClick={expDetailModalClickHandler}>close</button>
