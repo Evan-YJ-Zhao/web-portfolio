@@ -10,14 +10,14 @@ const detailListVariant = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.15,
     },
   },
 };
 
 const detailListItemVariant = {
   hidden: {
-    y: -50,
+    y: 10,
     opacity: 0,
   },
   visible: {
@@ -35,6 +35,8 @@ const Timeline = () => {
     setSelectedExp(id);
   };
 
+  const isSelected = (id: number) => id == selectedExp;
+
   return (
     <div className="mt-12 mb-8 desktop-sm:mx-20 flex justify-evenly">
       <div className="flex justify-start">
@@ -50,15 +52,15 @@ const Timeline = () => {
                 {exp.startDate}
               </div>
               <div
-                data-theme={exp.id == selectedExp ? "cmyk" : "lofi"}
+                data-theme={isSelected(exp.id) ? "cmyk" : "lofi"}
                 className="timeline-middle text-primary"
               >
                 <TimelineCheckMarkSVG />
               </div>
               <div
-                data-theme={exp.id == selectedExp ? "cmyk" : "lofi"}
+                data-theme={isSelected(exp.id) ? "cmyk" : "lofi"}
                 className={`timeline-end timeline-box hover:cursor-pointer rounded-xl border-[1.5px] border-primary box-border 
-                  ${exp.id == selectedExp ? "outline outline-primary" : ""}`}
+                  ${isSelected(exp.id) ? "outline outline-primary" : ""}`}
               >
                 <div className="text-lg font-black">{exp.title}</div>
                 <div className="text-md italic">
@@ -78,15 +80,14 @@ const Timeline = () => {
         {timelineExperience.map((exp: TimelineExperience) => (
           <div
             key={`exp-detail-${exp.id}`}
-            className={`${exp.id == selectedExp ? "block" : "hidden"}`}
+            className={`${isSelected(exp.id) ? "block" : "hidden"}`}
           >
             <motion.ul
               key={`exp-detail-list-${exp.id}`}
               className="px-5"
               variants={detailListVariant}
               initial="hidden"
-              animate="visible"
-              onAnimationComplete={()=>{console.log("hello")}}
+              animate={isSelected(exp.id) ? "visible" : ""}
             >
               {exp.descriptions.map((description, index) => (
                 <motion.li
