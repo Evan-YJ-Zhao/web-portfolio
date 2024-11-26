@@ -14,7 +14,7 @@ const SectionWrapper = ({
   titlePosition,
 }: Props) => {
   let justifyAt = "justify-start";
-  let shiftByMargin = "ml-[4%]";
+  let shiftByMargin = "ml-[5%]";
   let position = "absolute";
 
   switch (titlePosition) {
@@ -25,14 +25,14 @@ const SectionWrapper = ({
       break;
     case "right":
       justifyAt = "justify-end";
-      shiftByMargin = "mr-[4%]";
+      shiftByMargin = "mr-[5%]";
       break;
     default:
       break;
   }
 
   return (
-    <section className={`${className}`}>
+    <section className={`${className} mb-4`}>
       <div className={`relative flex ${justifyAt}`}>
         <motion.div
           className={`${position} ${shiftByMargin}

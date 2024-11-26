@@ -55,7 +55,7 @@ const page = () => {
           </AnimatePresence>
 
           <SwitchMotionButton
-            className="absolute bottom-0 right-[2%]"
+            className="absolute bottom-0 right-[4%]"
             clickHandler={imageSwitchButtonOnClickHandler}
           />
         </SectionWrapper>
