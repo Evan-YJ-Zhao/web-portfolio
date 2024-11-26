@@ -7,7 +7,9 @@ import cloudImg from "@/public/images/common/cloud.svg";
 import codeBlockImg from "@/public/images/common/code_blocks.svg";
 import databaseImg from "@/public/images/common/database.svg";
 import frameSourceImg from "@/public/images/common/frame_source.svg";
+import githubNamedImg from "@/public/images/common/github_named.svg";
 import homeImg from "@/public/images/common/home.svg";
+import linkedInColoredImg from "@/public/images/common/linkedIn_colored.svg";
 import outboxAltImg from "@/public/images/common/outbox_alt.svg";
 import queryStatsImg from "@/public/images/common/query_stats.svg";
 
@@ -42,7 +44,9 @@ export {
   codeBlockImg,
   databaseImg,
   frameSourceImg,
+  githubNamedImg,
   homeImg,
+  linkedInColoredImg,
   outboxAltImg,
   queryStatsImg,
 
