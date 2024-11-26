@@ -13,7 +13,7 @@ const AboutPanel = () => {
             src={aboutMeImg}
             alt="Profile Image"
             className="border border-primary rounded-full 
-              group-hover:shadow-lg group-hover:shadow-primary group-hover:border-2 group-hover:opacity-70"
+              group-hover:shadow-lg group-hover:shadow-primary group-hover:border-2 laptop:group-hover:opacity-70"
             fill
           />
         </a>
