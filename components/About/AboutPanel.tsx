@@ -3,8 +3,8 @@ import Image from "next/image";
 
 const AboutPanel = () => {
   return (
-    <div className="relative w-full h-full flex justify-center flex-row-reverse my-12 gap-10">
-      <div className="group relative indicator aspect-square rounded-full hover:bg-black">
+    <div className="relative w-full flex flex-wrap justify-center flex-row-reverse my-12 gap-10">
+      <div className="group relative indicator w-48 h-48 aspect-square rounded-full hover:bg-black">
         <a href="/contact-me">
           <span className="indicator-item indicator-center badge badge-primary rounded-lg group-hover:hidden">
             Click me to contact
@@ -19,12 +19,12 @@ const AboutPanel = () => {
         </a>
       </div>
       <div className="px-10 flex flex-col justify-center">
-        <h1 className="text-4xl font-bold text-right">(Evan) Yu Jun Zhao</h1>
-        <p className="py-6 text-right text-lg">
+        <h1 className="text-4xl font-bold text-center tablet:text-right">(Evan) Yu Jun Zhao</h1>
+        <p className="py-6 text-lg text-center tablet:text-right ">
           I'm a Full-Stack Software Engineer. <br />
           I'm not a designer.
         </p>
-        <div className="flex justify-end gap-5">
+        <div className="flex justify-center tablet:justify-end gap-5">
           <a
             href="https://github.com/Yu-Jun-Zhao/"
             target="_blank"
