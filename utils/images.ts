@@ -1,3 +1,6 @@
+// about
+import aboutMeImg from "@/public/images/about/about_me_img.jpeg";
+
 // common
 import buildImg from "@/public/images/common/build.svg";
 import cloudImg from "@/public/images/common/cloud.svg";
@@ -32,6 +35,8 @@ import tailwindCSSImg from "@/public/images/techstack/tailwindcss_colored.svg";
 import typeScriptImg from "@/public/images/techstack/typescript_colored.svg";
 
 export {
+  aboutMeImg,
+
   buildImg,
   cloudImg,
   codeBlockImg,
