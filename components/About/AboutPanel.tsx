@@ -4,16 +4,16 @@ import Image from "next/image";
 const AboutPanel = () => {
   return (
     <div className="relative w-full h-full flex justify-center flex-row-reverse my-12 gap-10">
-      <div className="relative indicator aspect-square rounded-full hover:bg-black">
+      <div className="group relative indicator aspect-square rounded-full hover:bg-black">
         <a href="/contact-me">
-          <span className="indicator-item indicator-center badge badge-primary">
+          <span className="indicator-item indicator-center badge badge-primary group-hover:hidden">
             Click me to contact
           </span>
           <Image
             src={aboutMeImg}
             alt="Profile Image"
             className="border border-primary rounded-full 
-              hover:shadow-lg hover:shadow-primary hover:border-2 hover:opacity-70"
+              group-hover:shadow-lg group-hover:shadow-primary group-hover:border-2 group-hover:opacity-70"
             fill
           />
         </a>
