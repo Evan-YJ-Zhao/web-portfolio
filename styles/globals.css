@@ -5,7 +5,7 @@
 @layer base {
   body,
   main {
-    @apply w-screen h-dvh;
+    @apply w-screen min-h-dvh;
   }
 }
 

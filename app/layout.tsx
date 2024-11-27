@@ -7,7 +7,7 @@ const roboto = Roboto({
   style: ["normal", "italic"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-roboto"
+  variable: "--font-roboto",
 });
 
 const robotoMono = Roboto_Mono({
@@ -15,8 +15,8 @@ const robotoMono = Roboto_Mono({
   style: ["normal", "italic"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-roboto-mono"
-})
+  variable: "--font-roboto-mono",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,11 +28,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang="en">
-      <body className={`${roboto.className} ${roboto.variable} ${robotoMono.variable} antialiased`}>
+      <body
+        className={`${roboto.className} ${roboto.variable} ${robotoMono.variable} antialiased`}
+      >
         <main>{children}</main>
+        <footer className="absolute footer footer-center bg-neutral text-base-content pb-4">
+          <aside>
+            <p>
+              Copyright © {new Date().getFullYear()}
+            </p>
+          </aside>
+        </footer>
       </body>
     </html>
   );
