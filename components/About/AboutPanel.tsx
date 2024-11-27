@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const AboutPanel = () => {
   return (
-    <div className="relative w-full flex flex-wrap justify-center flex-row-reverse my-12 gap-10">
+    <div className="relative w-full flex flex-wrap justify-center flex-row-reverse mt-12 mb-16 gap-10">
       <div className="group relative indicator w-48 h-48 aspect-square rounded-full hover:bg-black">
         <a href="/contact-me">
           <span className="indicator-item indicator-center badge badge-primary rounded-lg group-hover:hidden">

@@ -54,7 +54,7 @@ const SectionWrapper = ({
 
       {children}
       <div
-        className="relative w-full h-[1px] laptop:h-[2px] bottom-1 justify-self-center bg-gradient-to-r 
+        className="relative w-full h-[1px] laptop:h-[1.5px] bottom-1 justify-self-center bg-gradient-to-r 
         from-transparent via-primary to-transparent
         laptop:from-15% laptop:via-50% laptop:to-85%"
       />
