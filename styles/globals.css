@@ -3,10 +3,14 @@
 @tailwind utilities;
 
 @layer base {
-  body,
-  main {
-    @apply w-screen min-h-dvh;
+  body {
+    @apply w-screen h-dvh flex flex-col;
   }
+
+  main {
+    @apply flex-grow flex flex-col;
+  }
+
 }
 
 @layer components {

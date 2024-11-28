@@ -34,7 +34,7 @@ export default function RootLayout({
         className={`${roboto.className} ${roboto.variable} ${robotoMono.variable} antialiased`}
       >
         <main>{children}</main>
-        <footer className="absolute footer footer-center bg-neutral text-base-content pb-4">
+        <footer className="relative footer footer-center bg-neutral text-base-content pb-4">
           <aside>
             <p>
               Copyright © {new Date().getFullYear()}
