@@ -1,12 +1,15 @@
 const ContactForm = () => {
+
+  console.log("hello");
+
   return (
     <>
       <div className=" w-full max-w-xl border border-primary bg-neutral p-8">
-        <h2 className="text-4xl font-bold mb-6 text-start">Contact Me</h2>
-        <form className="space-y-4">
+        <h2 className="text-2xl tablet:text-4xl font-bold tablet:mb-6 text-start">Contact Me</h2>
+        <form className="tablet:space-y-4">
           {/* First Name and Last Name */}
-          <div className="flex gap-4">
-            <div className="form-control w-1/2">
+          <div className="flex flex-col tablet:flex-row tablet:gap-4">
+            <div className="form-control w-full tablet:w-1/2">
               <label className="label">
                 <span className="label-text">First Name</span>
               </label>
@@ -17,7 +20,7 @@ const ContactForm = () => {
                 required
               />
             </div>
-            <div className="form-control w-1/2">
+            <div className="form-control w-full tablet:w-1/2">
               <label className="label">
                 <span className="label-text">Last Name</span>
               </label>
@@ -72,7 +75,7 @@ const ContactForm = () => {
           {/* Submit Button */}
           <div className="form-control mt-6">
             <button type="submit" className="btn btn-primary w-full">
-              Send Message
+              Submit
             </button>
           </div>
         </form>
