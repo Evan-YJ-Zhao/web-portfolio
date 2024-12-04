@@ -18,6 +18,7 @@ const config: Config = {
           accent: "#666666",
           neutral: "#FAFAFA",
           "base-100": "#FAFAFA",
+          "error": "#D32F2F"
         },
       },
       "cmyk"
