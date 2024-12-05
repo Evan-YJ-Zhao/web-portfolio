@@ -10,6 +10,7 @@ import frameSourceImg from "@/public/images/common/frame_source.svg";
 import githubNamedImg from "@/public/images/common/github_named.svg";
 import homeImg from "@/public/images/common/home.svg";
 import linkedInColoredImg from "@/public/images/common/linkedIn_colored.svg";
+import mailImg from "@/public/images/common/mail.svg";
 import outboxAltImg from "@/public/images/common/outbox_alt.svg";
 import queryStatsImg from "@/public/images/common/query_stats.svg";
 
@@ -47,6 +48,7 @@ export {
   githubNamedImg,
   homeImg,
   linkedInColoredImg,
+  mailImg,
   outboxAltImg,
   queryStatsImg,
 

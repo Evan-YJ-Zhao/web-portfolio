@@ -1,12 +1,12 @@
 "use client";
 
-import { useReducer } from "react";
-import formReducer, { FormAction } from "@/reducers/formReducer";
-import { FormState } from "@/reducers/formReducer";
-import { StringValues } from "@/utils/commonTypes";
+import { forwardRef, useImperativeHandle, useReducer, useState } from "react";
 import isEmail from "validator/lib/isEmail";
 import escape from "validator/lib/escape";
 import trim from "validator/lib/trim";
+import formReducer, { FormAction } from "@/reducers/formReducer";
+import { FormState } from "@/reducers/formReducer";
+import { StringValues } from "@/utils/commonTypes";
 
 // Allows only input with the following names
 const formFields = [
@@ -51,7 +51,18 @@ const getSanitizedFieldValues = (
   );
 };
 
-const ContactForm = () => {
+enum Status {
+  INIT,
+  SUBMITTING,
+  SUBMITTED,
+}
+
+const ContactForm = ({
+  onFormSubmitted,
+}: {
+  onFormSubmitted: (value: boolean) => void;
+}) => {
+  const [status, setStatus] = useState<Status>(Status.INIT);
   const [formData, dispatchFormData] = useReducer(
     formReducer<FormFields>,
     initialState
@@ -112,8 +123,13 @@ const ContactForm = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (validateForm()) {
+      setStatus(Status.SUBMITTING);
+      
       const sanitizedValues = getSanitizedFieldValues(formData.values);
-      dispatchFormData({type: FormAction.RESET});
+      dispatchFormData({ type: FormAction.RESET });
+
+      setStatus(Status.SUBMITTED);
+      onFormSubmitted(true);
     }
   };
 
@@ -247,7 +263,11 @@ const ContactForm = () => {
           {/* Submit Button */}
           <div className="form-control mt-6">
             <button type="submit" className="btn btn-primary w-full">
-              Submit
+              {status == Status.SUBMITTING ? (
+                <span className="loading loading-dots loading-md"></span>
+              ) : (
+                "Submit"
+              )}
             </button>
           </div>
         </form>
