@@ -36,14 +36,14 @@ const AboutPanel = () => {
         </p>
         <div className="flex justify-center tablet:justify-end gap-5">
           <a
-            href="https://github.com/Yu-Jun-Zhao/"
+            href="https://github.com/Evan-YJ-Zhao/"
             target="_blank"
             className="relative btn aspect-square bg-neutral border-neutral"
           >
             <Image src={githubNamedImg} alt="Link to my Github" fill />
           </a>
           <a
-            href="https://www.linkedin.com/in/yu-jun-zhao/"
+            href="https://www.linkedin.com/in/evan-yj-zhao/"
             target="_blank"
             className="relative btn aspect-square"
           >
