@@ -1,6 +1,7 @@
 "use client";
 
-import { forwardRef, useImperativeHandle, useReducer, useState } from "react";
+import { motion } from "framer-motion";
+import { useReducer, useState } from "react";
 import isEmail from "validator/lib/isEmail";
 import escape from "validator/lib/escape";
 import trim from "validator/lib/trim";
@@ -124,7 +125,7 @@ const ContactForm = ({
     e.preventDefault();
     if (validateForm()) {
       setStatus(Status.SUBMITTING);
-      
+
       const sanitizedValues = getSanitizedFieldValues(formData.values);
       dispatchFormData({ type: FormAction.RESET });
 
@@ -135,7 +136,11 @@ const ContactForm = ({
 
   return (
     <>
-      <div className=" w-full max-w-xl border border-primary bg-neutral p-8">
+      <motion.div
+        className="w-full max-w-xl border border-primary bg-neutral p-8"
+        initial={{ opacity: 0, y: 500 }}
+        animate={{ opacity: 1, y: 0, transition: {duration: 0.5}}}
+      >
         <h2 className="text-2xl tablet:text-4xl font-bold tablet:mb-6 text-start">
           Contact Me
         </h2>
@@ -271,7 +276,7 @@ const ContactForm = ({
             </button>
           </div>
         </form>
-      </div>
+      </motion.div>
     </>
   );
 };
