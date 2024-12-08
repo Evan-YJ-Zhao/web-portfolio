@@ -4,7 +4,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import ContactForm from "@/components/Form/ContactForm";
-import { mailImg } from "@/utils/images";
+import { linkedInColoredImg, mailImg } from "@/utils/images";
+import { LINKS } from "@/utils/links";
 
 const page = () => {
   const [contactFormIsSubmitted, setContactFormIsSubmitted] =
@@ -33,10 +34,25 @@ const page = () => {
                 will respond ASAP.
               </p>
               <p className="text-sm">
-                If you would <em>(for any reasons)</em> like to submit another
-                message, click the button to submit another message
+                If you would like to submit another
+                message, click the <b>mail-icon button</b> to submit another message
               </p>
             </motion.div>
+            <motion.a
+              data-theme="cmyk"
+              href={LINKS.LINKEDIN_PROFILE}
+              target="_blank"
+              className="btn btn-circle btn-ghost hover:bg-transparent w-14 h-14"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { delay: 0.8 } }}
+            >
+              <Image
+                src={linkedInColoredImg}
+                alt="LinkedIn Image"
+                width={35}
+                height={35}
+              />
+            </motion.a>
 
             <motion.button
               data-theme="cmyk"
