@@ -16,7 +16,7 @@ const page = () => {
   };
 
   return (
-    <div className="h-full bg-neutral flex justify-center items-center">
+    <div className="h-full bg-neutral flex flex-col justify-center items-center">
       <AnimatePresence mode="wait">
         {contactFormIsSubmitted ? (
           <div

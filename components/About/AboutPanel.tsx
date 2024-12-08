@@ -1,5 +1,7 @@
-import { aboutMeImg, githubNamedImg, linkedInColoredImg } from "@/utils/images";
 import Image from "next/image";
+import { aboutMeImg, githubNamedImg, linkedInColoredImg } from "@/utils/images";
+import { LINKS } from "@/utils/links";
+
 
 const AboutPanel = () => {
   return (
@@ -36,14 +38,14 @@ const AboutPanel = () => {
         </p>
         <div className="flex justify-center tablet:justify-end gap-5">
           <a
-            href="https://github.com/Evan-YJ-Zhao/"
+            href={LINKS.GITHUB_PROFILE}
             target="_blank"
             className="relative btn aspect-square bg-neutral border-neutral"
           >
             <Image src={githubNamedImg} alt="Link to my Github" fill />
           </a>
           <a
-            href="https://www.linkedin.com/in/evan-yj-zhao/"
+            href={LINKS.LINKEDIN_PROFILE}
             target="_blank"
             className="relative btn aspect-square"
           >

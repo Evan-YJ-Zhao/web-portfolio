@@ -9,10 +9,11 @@ import { contactFields, ContactFields, createContact } from "@/api/contact";
 import formReducer, { FormAction } from "@/reducers/formReducer";
 import { FormState } from "@/reducers/formReducer";
 import { StringValues } from "@/utils/types";
+import { LINKS } from "@/utils/links";
 
 // loosen the coupling a bit with the contact api, ensuring extensibility
 type FormFields = ContactFields;
-const formFields = [...contactFields ] as const;
+const formFields = [...contactFields] as const;
 
 const isFormField = (name: string): name is FormFields => {
   return (formFields as readonly string[]).includes(name);
@@ -51,6 +52,7 @@ enum Status {
   INIT,
   SUBMITTING,
   SUBMITTED,
+  UNAVAILABLE,
 }
 
 const ContactForm = ({
@@ -123,10 +125,8 @@ const ContactForm = ({
 
       const sanitizedValues = getSanitizedFieldValues(formData.values);
       const result = await createContact(sanitizedValues);
-     
-      
-      dispatchFormData({ type: FormAction.RESET });
 
+      dispatchFormData({ type: FormAction.RESET });
 
       setStatus(Status.SUBMITTED);
       onFormSubmitted(true);
@@ -135,6 +135,16 @@ const ContactForm = ({
 
   return (
     <>
+      <div className="mb-5 text-center">
+        <p className="text-lg text-error">
+          An error occurred, and the form is currently unavailable. Please
+          connect via{" "}
+          <a href={LINKS.LINKEDIN_PROFILE} target="_blank" className="underline font-bold">
+            LinkedIn
+          </a>{" "}
+          instead.
+        </p>
+      </div>
       <motion.div
         className="w-full max-w-xl border border-primary bg-neutral p-8"
         initial={{ opacity: 0, y: 500 }}
