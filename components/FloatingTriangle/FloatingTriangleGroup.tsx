@@ -1,7 +1,7 @@
 "use client";
 
 import useWindowAttr from "@/hooks/useWindowAttr";
-import { OptionalClassName } from "@/utils/commonTypes";
+import { OptionalClassName } from "@/utils/types";
 import { getRandomIntByRange, rangeInclusive } from "@/utils/numbers";
 
 type FloatingTriangleCSSProperties = React.CSSProperties & {

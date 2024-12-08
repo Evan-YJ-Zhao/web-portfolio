@@ -1,6 +1,6 @@
 import Link from "next/link";
 import navLinks, { NavLink } from "./NavLinks";
-import { OptionalClassName } from "@/utils/commonTypes";
+import { OptionalClassName } from "@/utils/types";
 
 const HomeMenu = ({ className }: OptionalClassName) => {
   return (

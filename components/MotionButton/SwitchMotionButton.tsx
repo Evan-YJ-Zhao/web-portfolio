@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { memo, MouseEventHandler } from "react";
-import { OptionalClassName } from "@/utils/commonTypes";
+import { OptionalClassName } from "@/utils/types";
 
 type Props = OptionalClassName & {
   clickHandler: MouseEventHandler<HTMLButtonElement>;

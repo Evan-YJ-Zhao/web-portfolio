@@ -5,19 +5,14 @@ import { useReducer, useState } from "react";
 import isEmail from "validator/lib/isEmail";
 import escape from "validator/lib/escape";
 import trim from "validator/lib/trim";
+import { contactFields, ContactFields, createContact } from "@/api/contact";
 import formReducer, { FormAction } from "@/reducers/formReducer";
 import { FormState } from "@/reducers/formReducer";
-import { StringValues } from "@/utils/commonTypes";
+import { StringValues } from "@/utils/types";
 
-// Allows only input with the following names
-const formFields = [
-  "firstName",
-  "lastName",
-  "email",
-  "subject",
-  "message",
-] as const;
-type FormFields = (typeof formFields)[number];
+// loosen the coupling a bit with the contact api, ensuring extensibility
+type FormFields = ContactFields;
+const formFields = [...contactFields ] as const;
 
 const isFormField = (name: string): name is FormFields => {
   return (formFields as readonly string[]).includes(name);
@@ -121,13 +116,17 @@ const ContactForm = ({
     return Object.keys(errors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (validateForm()) {
       setStatus(Status.SUBMITTING);
 
       const sanitizedValues = getSanitizedFieldValues(formData.values);
+      const result = await createContact(sanitizedValues);
+     
+      
       dispatchFormData({ type: FormAction.RESET });
+
 
       setStatus(Status.SUBMITTED);
       onFormSubmitted(true);
@@ -139,7 +138,7 @@ const ContactForm = ({
       <motion.div
         className="w-full max-w-xl border border-primary bg-neutral p-8"
         initial={{ opacity: 0, y: 500 }}
-        animate={{ opacity: 1, y: 0, transition: {duration: 0.5}}}
+        animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
       >
         <h2 className="text-2xl tablet:text-4xl font-bold tablet:mb-6 text-start">
           Contact Me
