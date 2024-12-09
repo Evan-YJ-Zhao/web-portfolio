@@ -16,7 +16,7 @@ type FloatingTriangleCSSProperties = React.CSSProperties & {
   "--translate-by-dvh": string;
 };
 
-const FloatingTriangleGroup = ({ className }: OptionalClassName) => {
+const FloatingTriangleGroup = ({ className = "" }: OptionalClassName) => {
   const { isInClient, windowSize } = useWindowAttr();
   const { width } = windowSize;
 

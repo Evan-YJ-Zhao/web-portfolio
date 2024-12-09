@@ -6,12 +6,12 @@ const TimelineMobile = () => {
   const [selectedExp, setSelectedExp] = useState<number>(-1);
   const experienceDetailModalRefs = useRef<(HTMLDialogElement | null)[]>([]);
 
-  const expSummaryClickHandler = (id: number) => () => {
+  const expSummaryOnClickHandler = (id: number) => () => {
     setSelectedExp(id);
     experienceDetailModalRefs.current[id]?.showModal();
   };
 
-  const expDetailModalClickHandler = () => {
+  const expDetailModalOnClickHandler = () => {
     setSelectedExp(-1);
   };
 
@@ -25,7 +25,7 @@ const TimelineMobile = () => {
             <li
               key={`exp-summary-${exp.id}`}
               className="min-h-[6.2rem]"
-              onClick={expSummaryClickHandler(exp.id)}
+              onClick={expSummaryOnClickHandler(exp.id)}
             >
               {index != 0 && <hr className="bg-primary" />}
               <div className="timeline-start min-w-20 text-end max-phone-lg:hidden">
@@ -65,7 +65,7 @@ const TimelineMobile = () => {
             <form method="dialog">
               <button
                 className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-                onClick={expDetailModalClickHandler}
+                onClick={expDetailModalOnClickHandler}
               >
                 ✕
               </button>
@@ -79,7 +79,7 @@ const TimelineMobile = () => {
             ))}
           </div>
           <form method="dialog" className="modal-backdrop">
-            <button onClick={expDetailModalClickHandler}>close</button>
+            <button onClick={expDetailModalOnClickHandler}>close</button>
           </form>
         </dialog>
       ))}

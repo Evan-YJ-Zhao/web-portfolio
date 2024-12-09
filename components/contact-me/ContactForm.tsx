@@ -6,7 +6,10 @@ import isEmail from "validator/lib/isEmail";
 import escape from "validator/lib/escape";
 import trim from "validator/lib/trim";
 import { contactFields, ContactFields, createContact } from "@/api/contact";
-import formValuesReducer, { FormValuesAction, FormValuesState } from "@/reducers/formValuesReducer";
+import formValuesReducer, {
+  FormValuesAction,
+  FormValuesState,
+} from "@/reducers/formValuesReducer";
 import { StringValues } from "@/utils/types";
 import { LINKS } from "@/utils/links";
 
@@ -125,26 +128,39 @@ const ContactForm = ({
       const sanitizedValues = getSanitizedFieldValues(formData.values);
       const result = await createContact(sanitizedValues);
 
-      dispatchFormData({ type: FormValuesAction.RESET_VALUES });
+      if (result.success) {
+        setStatus(Status.SUBMITTED);
+        onFormSubmitted(true);
+      } else {
+        setStatus(Status.UNAVAILABLE);
+        onFormSubmitted(false);
+      }
 
-      setStatus(Status.SUBMITTED);
-      onFormSubmitted(true);
+      // Cleans up the values when the user clicks submit.
+      dispatchFormData({ type: FormValuesAction.RESET_VALUES });
     }
   };
 
   return (
     <>
-      <div className="mb-5 text-center">
-        <p className="text-lg text-error">
-          {/* An error occurred, and the form is currently unavailable. Please */}
-          The contact form is being built and is currently unavailable. 
-          Please connect via{" "}
-          <a href={LINKS.LINKEDIN_PROFILE} target="_blank" className="underline font-bold">
-            LinkedIn
-          </a>{" "}
-          instead.
-        </p>
-      </div>
+      {status === Status.UNAVAILABLE && (
+        <div className="mb-5 text-center">
+          <p className="text-lg text-error">
+            {/* An error occurred, and the form is currently unavailable. Please */}
+            The contact form is being built and is currently unavailable. Please
+            connect via{" "}
+            <a
+              href={LINKS.LINKEDIN_PROFILE}
+              target="_blank"
+              className="underline font-bold"
+            >
+              LinkedIn
+            </a>{" "}
+            instead.
+          </p>
+        </div>
+      )}
+
       <motion.div
         className="w-full max-w-xl border border-primary bg-neutral p-8"
         initial={{ opacity: 0, y: 500 }}

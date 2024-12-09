@@ -9,7 +9,7 @@ type Props = OptionalClassName & {
 
 const SectionWrapper = ({
   children,
-  className,
+  className = "",
   title,
   titlePosition,
 }: Props) => {

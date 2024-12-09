@@ -14,14 +14,14 @@ const TechStackImageSlider = () => {
   const [rotationY, setRotationY] = useState<number>(0);
   const [currentPos, setCurrentPos] = useState<number>(0);
 
-  const leftControlClickHandler = useCallback(() => {
+  const leftControlOnClickHandler = useCallback(() => {
     setRotationY((prev) => prev + rotationDeg);
     setCurrentPos(
       (prev) => (((prev - 1) % totalImages) + totalImages) % totalImages
     );
   }, []);
 
-  const rightControlClickHandler = useCallback(() => {
+  const rightControlOnClickHandler = useCallback(() => {
     setRotationY((prev) => prev - rotationDeg);
     setCurrentPos(
       (prev) => (((prev + 1) % totalImages) + totalImages) % totalImages
@@ -42,8 +42,8 @@ const TechStackImageSlider = () => {
 
       <ImageSliderControls
         className="absolute left-[calc(50%-25%/2)] w-[25%] laptop:bottom-8 desktop-sm:bottom-6 desktop-lg:bottom-5"
-        leftControlClickHandler={leftControlClickHandler}
-        rightControlClickHandler={rightControlClickHandler}
+        leftControlOnClickHandler={leftControlOnClickHandler}
+        rightControlOnClickHandler={rightControlOnClickHandler}
       />
     </motion.div>
   );

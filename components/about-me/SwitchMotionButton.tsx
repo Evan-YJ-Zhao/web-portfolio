@@ -3,14 +3,14 @@ import { memo, MouseEventHandler } from "react";
 import { OptionalClassName } from "@/utils/types";
 
 type Props = OptionalClassName & {
-  clickHandler: MouseEventHandler<HTMLButtonElement>;
+  onClickHandler: MouseEventHandler<HTMLButtonElement>;
 };
 
-const SwitchMotionButton = memo(({ className, clickHandler }: Props) => {
+const SwitchMotionButton = memo(({ className = "", onClickHandler }: Props) => {
   return (
     <motion.button
       className={`${className}`}
-      onClick={clickHandler}
+      onClick={onClickHandler}
       whileHover={{
         scale: 1.2,
       }}

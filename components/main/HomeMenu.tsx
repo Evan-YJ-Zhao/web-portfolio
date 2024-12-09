@@ -2,7 +2,7 @@ import Link from "next/link";
 import navLinks, { NavLink } from "../layout/Nav/NavLinks";
 import { OptionalClassName } from "@/utils/types";
 
-const HomeMenu = ({ className }: OptionalClassName) => {
+const HomeMenu = ({ className = "" }: OptionalClassName) => {
   return (
     <div className={`${className}`}>
       <nav>

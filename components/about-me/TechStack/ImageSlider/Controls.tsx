@@ -3,16 +3,16 @@ import { memo, MouseEventHandler } from "react";
 import { OptionalClassName } from "@/utils/types";
 
 type Props = OptionalClassName & {
-  leftControlClickHandler: MouseEventHandler<HTMLButtonElement>;
-  rightControlClickHandler: MouseEventHandler<HTMLButtonElement>;
+  leftControlOnClickHandler: MouseEventHandler<HTMLButtonElement>;
+  rightControlOnClickHandler: MouseEventHandler<HTMLButtonElement>;
 };
 
 // Controls the image slider
 const Controls = memo(
   ({
-    className,
-    leftControlClickHandler,
-    rightControlClickHandler,
+    className = "",
+    leftControlOnClickHandler,
+    rightControlOnClickHandler,
   }: Props) => {
     return (
       <motion.div
@@ -23,14 +23,14 @@ const Controls = memo(
         <button
           data-theme="cmyk"
           className="btn btn-circle hover:bg-primary border border-neutral"
-          onClick={leftControlClickHandler}
+          onClick={leftControlOnClickHandler}
         >
           &#x276E;
         </button>
         <button
           data-theme="cmyk"
           className="btn btn-circle hover:bg-primary border border-neutral"
-          onClick={rightControlClickHandler}
+          onClick={rightControlOnClickHandler}
         >
           &#x276F;
         </button>

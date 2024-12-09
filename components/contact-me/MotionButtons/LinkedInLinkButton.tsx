@@ -10,7 +10,7 @@ type Props = OptionalClassName & {
 };
 
 const LinkedInLinkButton = ({
-  className,
+  className = "",
   iconWidth = 35,
   iconHeight = 35,
 }: Props) => {

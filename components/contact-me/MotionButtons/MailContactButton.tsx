@@ -5,18 +5,18 @@ import { OptionalClassName } from "@/utils/types";
 import { mailImg } from "@/utils/images";
 
 type Props = OptionalClassName & {
-  clickHandler: MouseEventHandler<HTMLButtonElement>;
+  onClickHandler: MouseEventHandler<HTMLButtonElement>;
   iconWidth?: number;
   iconHeight?: number;
 };
 
 // Use className to set the size of the button
-const MailContactButton = ({ className, clickHandler, iconWidth = 35, iconHeight = 35 }: Props) => {
+const MailContactButton = ({ className = "", onClickHandler, iconWidth = 35, iconHeight = 35 }: Props) => {
   return (
     <motion.button
       data-theme="cmyk"
       className={`${className} btn btn-circle btn-ghost hover:bg-info`}
-      onClick={clickHandler}
+      onClick={onClickHandler}
       initial={{ opacity: 0, x: -500, border: "2px solid transparent" }}
       animate={{
         opacity: 1,

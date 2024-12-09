@@ -31,7 +31,7 @@ const Timeline = () => {
     timelineExperience[timelineExperience.length - 1].id
   );
 
-  const expSummaryClickHandler = (id: number) => () => {
+  const expSummaryOnClickHandler = (id: number) => () => {
     setSelectedExp(id);
   };
 
@@ -45,7 +45,7 @@ const Timeline = () => {
             <li
               key={`exp-summary-${exp.id}`}
               className="min-h-[6.2rem]"
-              onClick={expSummaryClickHandler(exp.id)}
+              onClick={expSummaryOnClickHandler(exp.id)}
             >
               {index != 0 && <hr className="bg-primary" />}
               <div className="timeline-start min-w-20 text-end max-laptop:hidden">

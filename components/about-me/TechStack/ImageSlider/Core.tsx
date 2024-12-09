@@ -19,7 +19,7 @@ type ImageSliderItemCSSProperties = React.CSSProperties & {
 
 // The main component of the image slider.
 const Core = ({
-  className,
+  className = "",
   focusPosition,
   sliderRotation,
   itemPositionRotation,
