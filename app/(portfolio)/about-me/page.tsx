@@ -57,7 +57,7 @@ const page = () => {
           <div className="absolute bottom-0 right-[4%]">
             <SwitchMotionButton
               className="w-10 h-10 m-4"
-              clickHandler={imageSwitchButtonOnClickHandler}
+              onClickHandler={imageSwitchButtonOnClickHandler}
             />
           </div>
         </SectionWrapper>

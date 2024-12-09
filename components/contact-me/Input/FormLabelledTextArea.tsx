@@ -6,18 +6,17 @@ type Props = OptionalClassName & {
   placeholder: string;
   value: string;
   error: string;
-  onChangeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChangeHandler: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 };
 
-// If needed in other pages, may move this to a common folder.
-const FormTextLabelledInput = ({
+const FormLabelledTextArea = ({
   name,
   label,
   placeholder,
   value,
   error,
   onChangeHandler,
-  className = ""
+  className = "",
 }: Props) => {
   return (
     <div className="form-control">
@@ -30,19 +29,19 @@ const FormTextLabelledInput = ({
           <span className="label-text">{label}</span>
         )}
       </label>
-      <input
-        type="text"
+      <textarea
         name={name}
         placeholder={placeholder}
-        className={`input input-bordered ${
-          error ? "input-error" : "input-primary"
+        className={`textarea textarea-bordered ${
+          error ? "textarea-error" : "textarea-primary"
         } w-full ${className}`}
+        rows={6}
         required
         value={value}
         onChange={onChangeHandler}
-      />
+      ></textarea>
     </div>
   );
 };
 
-export default FormTextLabelledInput;
+export default FormLabelledTextArea;

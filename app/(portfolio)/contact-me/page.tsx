@@ -42,7 +42,7 @@ const page = () => {
 
             <MailContactButton
               className="w-14 h-14"
-              clickHandler={messageButtonClickHandler}
+              onClickHandler={messageButtonClickHandler}
             />
           </div>
         ) : (
