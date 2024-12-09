@@ -6,7 +6,7 @@ import isEmail from "validator/lib/isEmail";
 import escape from "validator/lib/escape";
 import trim from "validator/lib/trim";
 import { contactFields, ContactFields, createContact } from "@/api/contact";
-import formReducer, { FormAction, FormState } from "@/reducers/formReducer";
+import formValuesReducer, { FormValuesAction, FormValuesState } from "@/reducers/formValuesReducer";
 import { StringValues } from "@/utils/types";
 import { LINKS } from "@/utils/links";
 
@@ -18,7 +18,7 @@ const isFormField = (name: string): name is FormFields => {
   return (formFields as readonly string[]).includes(name);
 };
 
-const initialState: FormState<FormFields> = {
+const initialState: FormValuesState<FormFields> = {
   values: {
     firstName: "",
     lastName: "",
@@ -61,7 +61,7 @@ const ContactForm = ({
 }) => {
   const [status, setStatus] = useState<Status>(Status.INIT);
   const [formData, dispatchFormData] = useReducer(
-    formReducer<FormFields>,
+    formValuesReducer<FormFields>,
     initialState
   );
 
@@ -70,7 +70,7 @@ const ContactForm = ({
   ) => {
     if (isFormField(e.target.name)) {
       dispatchFormData({
-        type: FormAction.SET_FIELD,
+        type: FormValuesAction.UPDATE_VALUE,
         field: e.target.name,
         payload: e.target.value,
       });
@@ -107,7 +107,7 @@ const ContactForm = ({
     for (const field of formFields) {
       if (errors[field]) {
         dispatchFormData({
-          type: FormAction.SET_ERROR,
+          type: FormValuesAction.SET_ERROR,
           field: field,
           payload: errors[field],
         });
@@ -125,7 +125,7 @@ const ContactForm = ({
       const sanitizedValues = getSanitizedFieldValues(formData.values);
       const result = await createContact(sanitizedValues);
 
-      dispatchFormData({ type: FormAction.RESET });
+      dispatchFormData({ type: FormValuesAction.RESET_VALUES });
 
       setStatus(Status.SUBMITTED);
       onFormSubmitted(true);
