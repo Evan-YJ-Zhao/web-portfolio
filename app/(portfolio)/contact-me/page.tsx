@@ -1,12 +1,9 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
 import { useState } from "react";
 import ContactForm from "@/components/contact-me/ContactForm";
 import MailContactButton from "@/components/contact-me/MotionButtons/MailContactButton";
-import { linkedInColoredImg } from "@/utils/images";
-import { LINKS } from "@/utils/links";
 import LinkedInLinkButton from "@/components/contact-me/MotionButtons/LinkedInLinkButton";
 
 const page = () => {
@@ -40,7 +37,7 @@ const page = () => {
                 <b>mail-icon button</b> to submit another message
               </p>
             </motion.div>
-            
+
             <LinkedInLinkButton className="w-14 h-14" />
 
             <MailContactButton
