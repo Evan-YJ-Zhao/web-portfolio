@@ -5,7 +5,7 @@ type Props = OptionalClassName & {
   label: string;
   placeholder: string;
   value: string;
-  error: string;
+  error?: string;
   onChangeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 

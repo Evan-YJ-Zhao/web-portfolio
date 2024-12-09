@@ -12,6 +12,8 @@ import formValuesReducer, {
 } from "@/reducers/formValuesReducer";
 import { StringValues } from "@/utils/types";
 import { LINKS } from "@/utils/links";
+import FormTextLabelledInput from "./Input/FormTextLabelledInput";
+import FormLabelledTextArea from "./Input/FormLabelledTextArea";
 
 // loosen the coupling a bit with the contact api, ensuring extensibility
 type FormFields = ContactFields;
@@ -68,7 +70,7 @@ const ContactForm = ({
     initialState
   );
 
-  const handleChange = (
+  const onChangeHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     if (isFormField(e.target.name)) {
@@ -120,7 +122,7 @@ const ContactForm = ({
     return Object.keys(errors).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (validateForm()) {
       setStatus(Status.SUBMITTING);
@@ -169,125 +171,69 @@ const ContactForm = ({
         <h2 className="text-2xl tablet:text-4xl font-bold tablet:mb-6 text-start">
           Contact Me
         </h2>
-        <form className="tablet:space-y-4" onSubmit={handleSubmit} noValidate>
+        <form
+          className="tablet:space-y-4"
+          onSubmit={onSubmitHandler}
+          noValidate
+        >
           {/* First Name and Last Name */}
           <div className="flex flex-col tablet:flex-row tablet:gap-4">
             <div className="form-control w-full tablet:w-1/2">
-              <label className="label">
-                {formData.errors.firstName ? (
-                  <span className="label-text text-error">
-                    First Name {formData.errors.firstName}
-                  </span>
-                ) : (
-                  <span className="label-text">First Name</span>
-                )}
-              </label>
-              <input
-                type="text"
+              <FormTextLabelledInput
                 name="firstName"
+                label="First Name"
                 placeholder="First Name"
-                className={`input input-bordered ${
-                  formData.errors.firstName ? "input-error" : "input-primary"
-                } w-full`}
-                required
                 value={formData.values.firstName}
-                onChange={handleChange}
+                error={formData.errors.firstName}
+                onChangeHandler={onChangeHandler}
               />
             </div>
             <div className="form-control w-full tablet:w-1/2">
-              <label className="label">
-                {formData.errors.lastName ? (
-                  <span className="label-text text-error">
-                    Last Name {formData.errors.lastName}
-                  </span>
-                ) : (
-                  <span className="label-text">Last Name</span>
-                )}
-              </label>
-              <input
-                type="text"
+              <FormTextLabelledInput
                 name="lastName"
+                label="Last Name"
                 placeholder="Last Name"
-                className={`input input-bordered ${
-                  formData.errors.lastName ? "input-error" : "input-primary"
-                } w-full`}
-                required
                 value={formData.values.lastName}
-                onChange={handleChange}
+                error={formData.errors.lastName}
+                onChangeHandler={onChangeHandler}
               />
             </div>
           </div>
 
           {/* Email Address */}
           <div className="form-control">
-            <label className="label">
-              {formData.errors.email ? (
-                <span className="label-text text-error">
-                  Email Address {formData.errors.email}
-                </span>
-              ) : (
-                <span className="label-text">Email Address</span>
-              )}
-            </label>
-            <input
-              type="email"
+            <FormTextLabelledInput
               name="email"
+              label="Email Address"
               placeholder="example@email.com"
-              className={`input input-bordered ${
-                formData.errors.email ? "input-error" : "input-primary"
-              } w-full`}
-              required
               value={formData.values.email}
-              onChange={handleChange}
+              error={formData.errors.email}
+              onChangeHandler={onChangeHandler}
             />
           </div>
 
           {/* Subject */}
           <div className="form-control">
-            <label className="label">
-              {formData.errors.subject ? (
-                <span className="label-text text-error">
-                  Subject {formData.errors.subject}
-                </span>
-              ) : (
-                <span className="label-text">Subject</span>
-              )}
-            </label>
-            <input
-              type="text"
+            <FormTextLabelledInput
               name="subject"
+              label="Subject"
               placeholder="Subject"
-              className={`input input-bordered ${
-                formData.errors.subject ? "input-error" : "input-primary"
-              } w-full`}
-              required
               value={formData.values.subject}
-              onChange={handleChange}
+              error={formData.errors.subject}
+              onChangeHandler={onChangeHandler}
             />
           </div>
 
           {/* Message */}
           <div className="form-control">
-            <label className="label">
-              {formData.errors.message ? (
-                <span className="label-text text-error">
-                  Message {formData.errors.message}
-                </span>
-              ) : (
-                <span className="label-text">Message</span>
-              )}
-            </label>
-            <textarea
+            <FormLabelledTextArea
               name="message"
+              label="Message"
               placeholder="Your message..."
-              className={`textarea textarea-bordered ${
-                formData.errors.message ? "textarea-error" : "textarea-primary"
-              } w-full`}
-              rows={6}
-              required
               value={formData.values.message}
-              onChange={handleChange}
-            ></textarea>
+              error={formData.errors.message}
+              onChangeHandler={onChangeHandler}
+            />
           </div>
 
           {/* Submit Button */}
