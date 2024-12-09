@@ -8,7 +8,7 @@ import LinkedInLinkButton from "@/components/contact-me/MotionButtons/LinkedInLi
 
 const page = () => {
   const [contactFormIsSubmitted, setContactFormIsSubmitted] =
-    useState<boolean>(true);
+    useState<boolean>(false);
 
   const messageButtonClickHandler = () => {
     // reset contact form

@@ -136,8 +136,9 @@ const ContactForm = ({
     <>
       <div className="mb-5 text-center">
         <p className="text-lg text-error">
-          An error occurred, and the form is currently unavailable. Please
-          connect via{" "}
+          {/* An error occurred, and the form is currently unavailable. Please */}
+          The contact form is being built and is currently unavailable. 
+          Please connect via{" "}
           <a href={LINKS.LINKEDIN_PROFILE} target="_blank" className="underline font-bold">
             LinkedIn
           </a>{" "}
