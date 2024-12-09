@@ -186,6 +186,7 @@ const ContactForm = ({
                 value={formData.values.firstName}
                 error={formData.errors.firstName}
                 onChangeHandler={onChangeHandler}
+                disabled={status === Status.UNAVAILABLE}
               />
             </div>
             <div className="form-control w-full tablet:w-1/2">
@@ -196,6 +197,7 @@ const ContactForm = ({
                 value={formData.values.lastName}
                 error={formData.errors.lastName}
                 onChangeHandler={onChangeHandler}
+                disabled={status === Status.UNAVAILABLE}
               />
             </div>
           </div>
@@ -209,6 +211,7 @@ const ContactForm = ({
               value={formData.values.email}
               error={formData.errors.email}
               onChangeHandler={onChangeHandler}
+              disabled={status === Status.UNAVAILABLE}
             />
           </div>
 
@@ -221,6 +224,7 @@ const ContactForm = ({
               value={formData.values.subject}
               error={formData.errors.subject}
               onChangeHandler={onChangeHandler}
+              disabled={status === Status.UNAVAILABLE}
             />
           </div>
 
@@ -233,12 +237,13 @@ const ContactForm = ({
               value={formData.values.message}
               error={formData.errors.message}
               onChangeHandler={onChangeHandler}
+              disabled={status === Status.UNAVAILABLE}
             />
           </div>
 
           {/* Submit Button */}
           <div className="form-control mt-6">
-            <button type="submit" className="btn btn-primary w-full">
+            <button type="submit" className="btn btn-primary w-full" disabled={status === Status.UNAVAILABLE}>
               {status == Status.SUBMITTING ? (
                 <span className="loading loading-dots loading-md"></span>
               ) : (

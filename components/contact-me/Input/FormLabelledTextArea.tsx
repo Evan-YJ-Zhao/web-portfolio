@@ -6,6 +6,7 @@ type Props = OptionalClassName & {
   placeholder: string;
   rows?: number;
   value: string;
+  disabled?: boolean;
   error?: string;
   onChangeHandler: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 };
@@ -14,10 +15,11 @@ const FormLabelledTextArea = ({
   name,
   label,
   placeholder,
-  rows = 6,
   value,
   error,
   onChangeHandler,
+  rows = 6,
+  disabled = false,
   className = "",
 }: Props) => {
   return (
@@ -39,6 +41,7 @@ const FormLabelledTextArea = ({
         } w-full ${className}`}
         rows={rows}
         required
+        disabled={disabled}
         value={value}
         onChange={onChangeHandler}
       ></textarea>

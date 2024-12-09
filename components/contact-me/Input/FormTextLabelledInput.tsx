@@ -5,6 +5,7 @@ type Props = OptionalClassName & {
   label: string;
   placeholder: string;
   value: string;
+  disabled?: boolean;
   error?: string;
   onChangeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
@@ -17,6 +18,7 @@ const FormTextLabelledInput = ({
   value,
   error,
   onChangeHandler,
+  disabled = false,
   className = ""
 }: Props) => {
   return (
@@ -38,6 +40,7 @@ const FormTextLabelledInput = ({
           error ? "input-error" : "input-primary"
         } w-full ${className}`}
         required
+        disabled={disabled}
         value={value}
         onChange={onChangeHandler}
       />
