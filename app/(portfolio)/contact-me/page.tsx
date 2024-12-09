@@ -7,6 +7,7 @@ import ContactForm from "@/components/contact-me/ContactForm";
 import MailContactButton from "@/components/contact-me/MotionButtons/MailContactButton";
 import { linkedInColoredImg } from "@/utils/images";
 import { LINKS } from "@/utils/links";
+import LinkedInLinkButton from "@/components/contact-me/MotionButtons/LinkedInLinkButton";
 
 const page = () => {
   const [contactFormIsSubmitted, setContactFormIsSubmitted] =
@@ -35,27 +36,17 @@ const page = () => {
                 will respond ASAP.
               </p>
               <p className="text-sm">
-                If you would like to submit another
-                message, click the <b>mail-icon button</b> to submit another message
+                If you would like to submit another message, click the{" "}
+                <b>mail-icon button</b> to submit another message
               </p>
             </motion.div>
-            <motion.a
-              data-theme="cmyk"
-              href={LINKS.LINKEDIN_PROFILE}
-              target="_blank"
-              className="w-14 h-14 p-2 btn btn-circle btn-ghost hover:bg-transparent"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1, transition: { delay: 0.8 } }}
-            >
-              <Image
-                src={linkedInColoredImg}
-                alt="LinkedIn Image"
-                width={35}
-                height={35}
-              />
-            </motion.a>
+            
+            <LinkedInLinkButton className="w-14 h-14" />
 
-            <MailContactButton className="w-14 h-14" clickHandler={messageButtonClickHandler}/>
+            <MailContactButton
+              className="w-14 h-14"
+              clickHandler={messageButtonClickHandler}
+            />
           </div>
         ) : (
           <ContactForm
