@@ -26,7 +26,7 @@ const Core = ({
 }: Props) => {
   return (
     <div
-      className={`${className} apply-slider-animation`}
+      className={`apply-slider-animation ${className}`}
       style={
         {
           "--slider-rotation-degree": sliderRotation,

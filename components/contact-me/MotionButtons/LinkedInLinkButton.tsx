@@ -19,7 +19,7 @@ const LinkedInLinkButton = ({
       data-theme="cmyk"
       href={LINKS.LINKEDIN_PROFILE}
       target="_blank"
-      className={`${className} p-2 btn btn-circle btn-ghost hover:bg-transparent`}
+      className={`p-2 btn btn-circle btn-ghost hover:bg-transparent ${className}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 0.8 } }}
     >

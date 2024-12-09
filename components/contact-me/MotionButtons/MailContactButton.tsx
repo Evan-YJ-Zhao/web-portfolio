@@ -15,7 +15,7 @@ const MailContactButton = ({ className = "", onClickHandler, iconWidth = 35, ico
   return (
     <motion.button
       data-theme="cmyk"
-      className={`${className} btn btn-circle btn-ghost hover:bg-info`}
+      className={`btn btn-circle btn-ghost hover:bg-info ${className}`}
       onClick={onClickHandler}
       initial={{ opacity: 0, x: -500, border: "2px solid transparent" }}
       animate={{

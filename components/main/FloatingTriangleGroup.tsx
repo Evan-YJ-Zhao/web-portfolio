@@ -28,7 +28,7 @@ const FloatingTriangleGroup = ({ className = "" }: OptionalClassName) => {
   const range = triangleNums != 0 ? Math.ceil(100 / triangleNums) : 0;
 
   return (
-    <div className={`${className} overflow-hidden`}>
+    <div className={`overflow-hidden ${className}`}>
       {/* if trianglenNums - 1 < 0, this will return an empty list */}
       {rangeInclusive(0, triangleNums - 1).map((i: number) => {
         const key = `tri-${i}`;

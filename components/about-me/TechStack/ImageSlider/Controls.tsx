@@ -18,7 +18,7 @@ const Controls = memo(
       <motion.div
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
-        className={`${className} flex justify-between items-center`}
+        className={`flex justify-between items-center ${className}`}
       >
         <button
           data-theme="cmyk"

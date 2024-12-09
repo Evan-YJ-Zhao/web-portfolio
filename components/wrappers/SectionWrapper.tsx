@@ -32,7 +32,7 @@ const SectionWrapper = ({
   }
 
   return (
-    <section className={`${className} mb-4`}>
+    <section className={`mb-4 ${className}`}>
       <div className={`relative flex ${justifyAt}`}>
         <motion.div
           className={`${position} ${shiftByMargin}
