@@ -26,7 +26,7 @@ const page = () => {
 
   if (!isInClient) {
     return null;
-  } 
+  }
 
   return (
     <>
@@ -54,19 +54,28 @@ const page = () => {
             )}
           </AnimatePresence>
 
-          <SwitchMotionButton
-            className="absolute bottom-0 right-[4%]"
-            clickHandler={imageSwitchButtonOnClickHandler}
-          />
+          <div className="absolute bottom-0 right-[4%]">
+            <SwitchMotionButton
+              className="w-10 h-10 m-4"
+              clickHandler={imageSwitchButtonOnClickHandler}
+            />
+          </div>
         </SectionWrapper>
       )}
-      <SectionWrapper className="w-full" title="Experience" titlePosition={width < laptopViewWidth ? "center" : "left"}>
+      <SectionWrapper
+        className="w-full"
+        title="Experience"
+        titlePosition={width < laptopViewWidth ? "center" : "left"}
+      >
         {width < tabletViewWidth ? <TimelineMobile /> : <Timeline />}
       </SectionWrapper>
-      <SectionWrapper className="w-full min-h-80 " title="About Me" titlePosition={width < laptopViewWidth ? "center" : "left"}>
+      <SectionWrapper
+        className="w-full min-h-80 "
+        title="About Me"
+        titlePosition={width < laptopViewWidth ? "center" : "left"}
+      >
         <AboutPanel />
       </SectionWrapper>
-      
     </>
   );
 };
