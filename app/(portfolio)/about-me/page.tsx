@@ -2,15 +2,15 @@
 
 import { AnimatePresence } from "framer-motion";
 import { useCallback, useState } from "react";
-import SectionWrapper from "@/components/Wrapper/SectionWrapper";
-import SwitchMotionButton from "@/components/MotionButton/SwitchMotionButton";
-import TechSkillsPanel from "@/components/TechSkills/TechSkillsPanel";
-import TechStackImageSlider from "@/components/TechStack/ImageSlider/TechStackImageSlider";
-import TechStackImagePanel from "@/components/TechStack/ImagePanel/TechStackImagePanel";
-import Timeline from "@/components/Timeline/Timeline";
+import SectionWrapper from "@/components/wrappers/SectionWrapper";
+import SwitchMotionButton from "@/components/about-me/SwitchMotionButton";
+import TechSkillsPanel from "@/components/about-me/TechSkills/TechSkillsPanel";
+import TechStackImageSlider from "@/components/about-me/TechStack/ImageSlider/TechStackImageSlider";
+import TechStackImagePanel from "@/components/about-me/TechStack/ImagePanel/TechStackImagePanel";
+import Timeline from "@/components/about-me/Timeline/Timeline";
 import useWindowAttr from "@/hooks/useWindowAttr";
-import TimelineMobile from "@/components/Timeline/TimelineMobile";
-import AboutPanel from "@/components/About/AboutPanel";
+import TimelineMobile from "@/components/about-me/Timeline/TimelineMobile";
+import AboutPanel from "@/components/about-me/AboutPanel";
 
 const laptopViewWidth = 1024;
 const tabletViewWidth = 768;

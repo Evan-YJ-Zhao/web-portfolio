@@ -1,4 +1,4 @@
-import { StringValues } from "@/utils/commonTypes";
+import { StringValues } from "@/utils/types";
 
 enum FormAction {
   SET_FIELD,

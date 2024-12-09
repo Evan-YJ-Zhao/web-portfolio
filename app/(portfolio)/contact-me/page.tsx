@@ -3,13 +3,13 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
-import ContactForm from "@/components/Form/ContactForm";
+import ContactForm from "@/components/contact-me/ContactForm";
 import { linkedInColoredImg, mailImg } from "@/utils/images";
 import { LINKS } from "@/utils/links";
 
 const page = () => {
   const [contactFormIsSubmitted, setContactFormIsSubmitted] =
-    useState<boolean>(false);
+    useState<boolean>(true);
 
   const messageButtonClickHandler = () => {
     // reset contact form
@@ -42,7 +42,7 @@ const page = () => {
               data-theme="cmyk"
               href={LINKS.LINKEDIN_PROFILE}
               target="_blank"
-              className="btn btn-circle btn-ghost hover:bg-transparent w-14 h-14"
+              className="w-14 h-14 p-2 btn btn-circle btn-ghost hover:bg-transparent"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1, transition: { delay: 0.8 } }}
             >
@@ -56,7 +56,7 @@ const page = () => {
 
             <motion.button
               data-theme="cmyk"
-              className="relative btn btn-circle btn-ghost hover:bg-info w-14 h-14"
+              className="w-14 h-14 btn btn-circle btn-ghost hover:bg-info"
               onClick={messageButtonClickHandler}
               initial={{ opacity: 0, x: -500, border: "2px solid transparent" }}
               animate={{

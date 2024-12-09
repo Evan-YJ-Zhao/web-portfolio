@@ -1,6 +1,6 @@
 import Image from "next/image";
 import images, { TechStackImage } from "../ImageData";
-import { OptionalClassName } from "@/utils/commonTypes";
+import { OptionalClassName } from "@/utils/types";
 
 type Props = OptionalClassName & {
   focusPosition: number;

@@ -6,8 +6,7 @@ import isEmail from "validator/lib/isEmail";
 import escape from "validator/lib/escape";
 import trim from "validator/lib/trim";
 import { contactFields, ContactFields, createContact } from "@/api/contact";
-import formReducer, { FormAction } from "@/reducers/formReducer";
-import { FormState } from "@/reducers/formReducer";
+import formReducer, { FormAction, FormState } from "@/reducers/formReducer";
 import { StringValues } from "@/utils/types";
 import { LINKS } from "@/utils/links";
 

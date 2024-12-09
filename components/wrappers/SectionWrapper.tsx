@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { OptionalClassName } from "@/utils/commonTypes";
+import { OptionalClassName } from "@/utils/types";
 
 type Props = OptionalClassName & {
   children: React.ReactNode;
