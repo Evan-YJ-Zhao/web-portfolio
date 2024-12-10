@@ -6,9 +6,9 @@ enum FormValuesAction {
   RESET_VALUES,
 }
 
-type SetXAction<T> = {
+type SetXAction<TField> = {
   type: FormValuesAction.UPDATE_VALUE | FormValuesAction.SET_ERROR;
-  field: T;
+  field: TField;
   payload: string;
 };
 
@@ -16,17 +16,17 @@ type ResetAction = {
   type: FormValuesAction.RESET_VALUES;
 };
 
-type Action<T extends string> = SetXAction<T> | ResetAction;
+type Action<TFields extends string> = SetXAction<TFields> | ResetAction;
 
-type State<T extends string> = {
-  values: StringValues<T>;
-  errors: Partial<StringValues<T>>;
+type State<TFields extends string> = {
+  values: StringValues<TFields>;
+  errors: Partial<StringValues<TFields>>;
 };
 
-const formValuesReducer = <T extends string>(
-  state: State<T>,
-  action: Action<T>
-): State<T> => {
+const formValuesReducer = <TFields extends string>(
+  state: State<TFields>,
+  action: Action<TFields>
+): State<TFields> => {
   switch (action.type) {
     case FormValuesAction.UPDATE_VALUE:
       return {
