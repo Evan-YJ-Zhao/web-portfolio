@@ -9,6 +9,7 @@ export class ApiError extends Error {
   }
 }
 
+// Not used at the moment
 export class UnexpectedStatusCodeError extends ApiError {
   public statusCode: number;
   constructor(statusCode: number) {

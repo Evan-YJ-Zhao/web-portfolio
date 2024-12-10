@@ -1,7 +1,7 @@
-export type ApiResponse<T> =
+export type ApiResponse<TResponseData = undefined> =
   | {
       success: true;
-      data: T | ErrorData;
+      data?: TResponseData;
     }
   | { success: false; error: ErrorData };
 

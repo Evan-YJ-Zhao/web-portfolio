@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useReducer, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import isEmail from "validator/lib/isEmail";
 import escape from "validator/lib/escape";
 import trim from "validator/lib/trim";
-import { contactFields, ContactFields, createContact } from "@/api/contact";
+import { contactFields, ContactFields, createContact } from "@/api/contactApi";
 import formValuesReducer, {
   FormValuesAction,
   FormValuesState,
@@ -142,6 +142,11 @@ const ContactForm = ({
       dispatchFormData({ type: FormValuesAction.RESET_VALUES });
     }
   };
+
+  // 
+  useEffect(() => {
+    
+  }, [])
 
   return (
     <>
