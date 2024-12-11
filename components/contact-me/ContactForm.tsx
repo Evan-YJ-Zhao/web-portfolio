@@ -5,7 +5,12 @@ import { useEffect, useReducer, useState } from "react";
 import isEmail from "validator/lib/isEmail";
 import escape from "validator/lib/escape";
 import trim from "validator/lib/trim";
-import { contactFields, ContactFields, createContact } from "@/api/contactApi";
+import {
+  contactFields,
+  ContactFields,
+  createContact,
+  getHealth,
+} from "@/api/contactApi";
 import formValuesReducer, {
   FormValuesAction,
   FormValuesState,
@@ -14,6 +19,7 @@ import { StringValues } from "@/utils/types";
 import { LINKS } from "@/utils/links";
 import FormTextLabelledInput from "./Input/FormTextLabelledInput";
 import FormLabelledTextArea from "./Input/FormLabelledTextArea";
+import { ApiResponse } from "@/api/types";
 
 // loosen the coupling a bit with the contact api, ensuring extensibility
 type FormFields = ContactFields;
@@ -143,10 +149,19 @@ const ContactForm = ({
     }
   };
 
-  // 
+  //
   useEffect(() => {
-    
-  }, [])
+    let ignore = false;
+    getHealth().then((res: ApiResponse) => {
+      if (!ignore && !res.success) {
+        setStatus(Status.UNAVAILABLE);
+      }
+    });
+
+    return () => {
+      ignore = true;
+    };
+  }, []);
 
   return (
     <>
@@ -248,7 +263,11 @@ const ContactForm = ({
 
           {/* Submit Button */}
           <div className="form-control mt-6">
-            <button type="submit" className="btn btn-primary w-full" disabled={status === Status.UNAVAILABLE}>
+            <button
+              type="submit"
+              className="btn btn-primary w-full"
+              disabled={status === Status.UNAVAILABLE}
+            >
               {status == Status.SUBMITTING ? (
                 <span className="loading loading-dots loading-md"></span>
               ) : (
