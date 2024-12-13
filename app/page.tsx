@@ -1,5 +1,5 @@
-import FloatingTriangleGroup from "@/components/main/FloatingTriangleGroup";
-import HomeMenu from "@/components/main/HomeMenu";
+import FloatingTriangleGroup from "@/components/home/FloatingTriangleGroup";
+import HomeMenu from "@/components/home/HomeMenu";
 
 export default function Home() {
   return (

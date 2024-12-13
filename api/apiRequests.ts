@@ -1,7 +1,8 @@
-import { JSONObject } from "@/utils/types";
 import axiosInstance from "./axiosInstance";
 import { ApiError } from "./errors";
 import { ApiResponse, ErrorType } from "./types";
+import { JSONObject } from "@/utils/types";
+
 
 export const getRequest = async <TResponseData>(
   url: string
