@@ -18,7 +18,7 @@ const HomeMenu = ({ className = "" }: OptionalClassName) => {
               <Link
                 className={
                   nav.isDisabled
-                    ? "text-center font-bold font-mono block z-10 btn-main-menu-gray-effect"
+                    ? "text-center font-bold font-mono block z-10 btn-main-menu-gray-effect hover:cursor-not-allowed"
                     : "text-center font-bold font-mono block z-10 btn-main-menu-gradient-effect"
                 }
                 href={nav.href}
