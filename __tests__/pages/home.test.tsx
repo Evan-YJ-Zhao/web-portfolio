@@ -11,7 +11,7 @@ jest.mock("@/components/home/FloatingTriangleGroup", () =>
   jest.fn(() => <div>MockedFloatingTriangleGroup</div>)
 );
 
-describe("Main Page", () => {
+describe("Home Page", () => {
   it("renders the HomeMenu once", () => {
     render(<HomePage />);
 
