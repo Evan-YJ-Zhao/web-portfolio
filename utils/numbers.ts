@@ -1,5 +1,5 @@
 export function getRandomIntByRange(min: number, max: number): number {
-  return Math.floor(min + Math.random() * (max - min));
+  return min <= max ? Math.floor(min + Math.random() * (max - min)) : -1;
 }
 
 // Should only return an array of length 0 or more numbers.
