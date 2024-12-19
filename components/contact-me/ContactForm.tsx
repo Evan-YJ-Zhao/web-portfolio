@@ -12,7 +12,7 @@ import {
   getHealth,
 } from "@/api/contactApi";
 import formValuesReducer, {
-  FormValuesAction,
+  FormValuesActionType,
   FormValuesState,
 } from "@/reducers/formValuesReducer";
 import { StringValues } from "@/utils/types";
@@ -81,7 +81,7 @@ const ContactForm = ({
   ) => {
     if (isFormField(e.target.name)) {
       dispatchFormData({
-        type: FormValuesAction.UPDATE_VALUE,
+        type: FormValuesActionType.UPDATE_VALUE,
         field: e.target.name,
         payload: e.target.value,
       });
@@ -118,7 +118,7 @@ const ContactForm = ({
     for (const field of formFields) {
       if (errors[field]) {
         dispatchFormData({
-          type: FormValuesAction.SET_ERROR,
+          type: FormValuesActionType.SET_ERROR,
           field: field,
           payload: errors[field],
         });
@@ -145,7 +145,7 @@ const ContactForm = ({
       }
 
       // Cleans up the values when the user clicks submit.
-      dispatchFormData({ type: FormValuesAction.RESET_VALUES });
+      dispatchFormData({ type: FormValuesActionType.RESET_VALUES });
     }
   };
 

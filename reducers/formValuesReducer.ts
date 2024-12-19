@@ -1,19 +1,19 @@
 import { StringValues } from "@/utils/types";
 
-enum FormValuesAction {
+enum FormValuesActionType {
   UPDATE_VALUE,
   SET_ERROR,
   RESET_VALUES,
 }
 
 type SetXAction<TField> = {
-  type: FormValuesAction.UPDATE_VALUE | FormValuesAction.SET_ERROR;
+  type: FormValuesActionType.UPDATE_VALUE | FormValuesActionType.SET_ERROR;
   field: TField;
   payload: string;
 };
 
 type ResetAction = {
-  type: FormValuesAction.RESET_VALUES;
+  type: FormValuesActionType.RESET_VALUES;
 };
 
 type Action<TFields extends string> = SetXAction<TFields> | ResetAction;
@@ -28,7 +28,7 @@ const formValuesReducer = <TFields extends string>(
   action: Action<TFields>
 ): State<TFields> => {
   switch (action.type) {
-    case FormValuesAction.UPDATE_VALUE:
+    case FormValuesActionType.UPDATE_VALUE:
       return {
         values: {
           ...state.values,
@@ -36,10 +36,10 @@ const formValuesReducer = <TFields extends string>(
         },
         errors: {
           ...state.errors,
-          [action.field]: "",
+          [action.field]: "", // also reset the error when field is updating. May change this logic later.
         },
       };
-    case FormValuesAction.SET_ERROR:
+    case FormValuesActionType.SET_ERROR:
       return {
         ...state,
         errors: {
@@ -47,7 +47,7 @@ const formValuesReducer = <TFields extends string>(
           [action.field]: action.payload,
         },
       };
-    case FormValuesAction.RESET_VALUES:
+    case FormValuesActionType.RESET_VALUES:
       return {
         values: Object.keys(state.values).reduce(
           (acc, key) => ({ ...acc, [key]: "" }),
@@ -59,6 +59,6 @@ const formValuesReducer = <TFields extends string>(
       return state;
   }
 };
-export { FormValuesAction };
-export type { State as FormValuesState };
+export { FormValuesActionType };
+export type { State as FormValuesState, Action as FormValuesAction };
 export default formValuesReducer;
