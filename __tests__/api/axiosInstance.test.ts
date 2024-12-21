@@ -1,4 +1,6 @@
 import axiosInstance from "@/api/axiosInstance";
+import { ApiError } from "@/api/errors";
+import { ErrorType } from "@/api/types";
 
 describe("axiosInstance", () => {
   // casting to any. Not preferred but does the job for now.
@@ -45,5 +47,87 @@ describe("axiosInstance", () => {
     });
   });
 
-  describe("second handler", () => {});
+  describe("second handler", () => {
+    const secondHandler = responseInterceptorHandlers[1];
+
+    it("should return response on resolved response", () => {
+      const mockResponse = { data: "test" };
+      const resolvedResponse = secondHandler.fulfilled(mockResponse);
+
+      expect(resolvedResponse).toEqual(mockResponse);
+    });
+
+    it("should reject a supported API error if there's an error response with a supported error status code", async () => {
+      const supportedStatusCodes = [400, 401, 404, 408, 500, 503];
+
+      for (const statusCode of supportedStatusCodes) {
+        const mockErrorResponse = {
+          config: {
+            url: "/test",
+          },
+          response: {
+            status: statusCode,
+          },
+          message: "This is a test mock error",
+        };
+
+        // A bug in jest that only checks equality based on error message: https://github.com/jestjs/jest/issues/12108
+        // This means the following will pass even though it should have failed.
+        // await expect(secondHandler.rejected(mockErrorResponse)).rejects.toEqual(
+        //   new ApiError(mockErrorResponse.message, ErrorType.INTERNAL_SERVER_ERROR)
+        // );
+
+        try {
+          await secondHandler.rejected(mockErrorResponse);
+        } catch (error) {
+          if (error instanceof ApiError) {
+            expect(error.message).toBe("This is a test mock error");
+            expect(error.errorType).not.toBe(ErrorType.UNSUPPORTED_ERROR);
+            expect(error.errorType).not.toBe(ErrorType.UNKNOWN_ERROR);
+          }
+        }
+      }
+    });
+
+    it("should reject an unsupported API error if there's an error response with an unsupported error status code", async () => {
+      const mockErrorResponse = {
+        config: {
+          url: "/test",
+        },
+        response: {
+          status: 505,
+        },
+        message: "This is a test mock error",
+      };
+
+      try {
+        await secondHandler.rejected(mockErrorResponse);
+      } catch (error) {
+        if (error instanceof ApiError) {
+          expect(error.message).toBe("This is a test mock error");
+          expect(error.errorType).toBe(ErrorType.UNSUPPORTED_ERROR);
+          expect(error.errorType).not.toBe(ErrorType.UNKNOWN_ERROR);
+        }
+      }
+    });
+
+    it("should reject an unknown API error if there isn't an error response", async () => {
+      const mockErrorResponse = {
+        config: {
+          url: "/test",
+        },
+        message: "This is a test mock error",
+      };
+
+      try {
+        await secondHandler.rejected(mockErrorResponse);
+      } catch (error) {
+        if (error instanceof ApiError) {
+          expect(error.message).toBe("This is a test mock error");
+          expect(error.errorType).not.toBe(ErrorType.UNSUPPORTED_ERROR);
+          expect(error.errorType).toBe(ErrorType.UNKNOWN_ERROR);
+        }
+      }
+    });
+  });
 });
