@@ -4,14 +4,14 @@ import { OptionalClassName } from "@/utils/types";
 type Props = OptionalClassName & {
   children: React.ReactNode;
   title: string;
-  titlePosition: "left" | "center" | "right";
+  titlePosition?: "left" | "center" | "right";
 };
 
 const SectionWrapper = ({
   children,
   className = "",
   title,
-  titlePosition,
+  titlePosition = "left",
 }: Props) => {
   let justifyAt = "justify-start";
   let shiftByMargin = "ml-[5%]";
@@ -32,7 +32,7 @@ const SectionWrapper = ({
   }
 
   return (
-    <section className={`mb-4 ${className}`}>
+    <section aria-label={`${title} section`} className={`mb-4 ${className}`}>
       <div className={`relative flex ${justifyAt}`}>
         <motion.div
           className={`${position} ${shiftByMargin}
