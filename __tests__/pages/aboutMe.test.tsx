@@ -78,12 +78,17 @@ jest.mock("@/components/about-me/Timeline/Timeline", () =>
   jest.fn(() => <div data-testid="mocked-timeline">Mocked Timeline</div>)
 );
 
+jest.mock("@/components/about-me/AboutPanel", () =>
+  jest.fn(() => <div data-testid="mocked-about-panel">Mocked About Panel</div>)
+);
+
 const componentNameToTestId = new Map<string, string>([
   ["TechStackImagePanel", "mocked-tech-stack-image-panel"],
   ["TechStackImageSlider", "mocked-tech-stack-image-slider"],
   ["TechSkillsPanel", "mocked-tech-skills-panel"],
   ["TimelineMobile", "mocked-timeline-mobile"],
   ["Timeline", "mocked-timeline"],
+  ["AboutPanel", "mocked-about-panel"],
 ]);
 
 const laptopViewWidth = 1024;
@@ -273,14 +278,25 @@ describe("About Me Page", () => {
         const { getAllByTestId } = render(<AboutMePage />);
 
         const sectionWrappers = getAllByTestId("mocked-section-wrapper");
-        const secondSectionWrapper = sectionWrappers[2];
+        const thirdSectionWrapper = sectionWrappers[2];
 
-        expect(secondSectionWrapper).toHaveAttribute("data-title", "About Me");
-        expect(secondSectionWrapper).toHaveAttribute(
+        expect(thirdSectionWrapper).toHaveAttribute("data-title", "About Me");
+        expect(thirdSectionWrapper).toHaveAttribute(
           "data-position",
           titlePosition
         );
       }
     );
+
+    it("should contain the AboutPanel", () => {
+      const { getAllByTestId, getByTestId } = render(<AboutMePage />);
+
+      const sectionWrappers = getAllByTestId("mocked-section-wrapper");
+      const thirdSectionWrapper = sectionWrappers[2];
+
+      const aboutPanel = getByTestId("mocked-about-panel");
+      expect(aboutPanel).toBeInTheDocument();
+      expect(thirdSectionWrapper).toContainElement(aboutPanel);
+    });
   });
 });
