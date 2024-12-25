@@ -2,15 +2,15 @@
 
 import { AnimatePresence } from "framer-motion";
 import { useCallback, useState } from "react";
+import AboutPanel from "@/components/about-me/AboutPanel";
 import SectionWrapper from "@/components/wrappers/SectionWrapper";
 import SwitchMotionButton from "@/components/about-me/SwitchMotionButton";
 import TechSkillsPanel from "@/components/about-me/TechSkills/TechSkillsPanel";
-import TechStackImageSlider from "@/components/about-me/TechStack/ImageSlider/TechStackImageSlider";
 import TechStackImagePanel from "@/components/about-me/TechStack/ImagePanel/TechStackImagePanel";
+import TechStackImageSlider from "@/components/about-me/TechStack/ImageSlider/TechStackImageSlider";
 import Timeline from "@/components/about-me/Timeline/Timeline";
-import useWindowAttr from "@/hooks/useWindowAttr";
 import TimelineMobile from "@/components/about-me/Timeline/TimelineMobile";
-import AboutPanel from "@/components/about-me/AboutPanel";
+import useWindowAttr from "@/hooks/useWindowAttr";
 
 const laptopViewWidth = 1024;
 const tabletViewWidth = 768;

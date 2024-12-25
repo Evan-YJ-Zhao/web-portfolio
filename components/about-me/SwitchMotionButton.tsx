@@ -9,6 +9,7 @@ type Props = OptionalClassName & {
 const SwitchMotionButton = memo(({ className = "", onClickHandler }: Props) => {
   return (
     <motion.button
+      aria-label="A switch button to toggle between components"
       className={`${className}`}
       onClick={onClickHandler}
       whileHover={{

@@ -32,7 +32,7 @@ const SectionWrapper = ({
   }
 
   return (
-    <section aria-label={`${title} section`} className={`mb-4 ${className}`}>
+    <section aria-label={`${title} Section`} className={`mb-4 ${className}`}>
       <div className={`relative flex ${justifyAt}`}>
         <motion.div
           className={`${position} ${shiftByMargin}

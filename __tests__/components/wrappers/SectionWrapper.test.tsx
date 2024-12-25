@@ -18,7 +18,7 @@ describe("SectionWrapper", () => {
       </SectionWrapper>
     );
     const section = screen.getByRole("region", {
-      name: `${testTitle} section`,
+      name: `${testTitle} Section`,
     });
     expect(section).toBeInTheDocument();
   });
