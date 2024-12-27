@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
-import images from "@/components/about-me/TechStack/ImageData";
-import TechStackImagePanel from "@/components/about-me/TechStack/ImagePanel/TechStackImagePanel";
+import images from "@/components/AboutMe/TechStack/ImageData";
+import TechStackImagePanel from "@/components/AboutMe/TechStack/ImagePanel/TechStackImagePanel";
 
 describe("TechStackImagePanel component", () => {
   it("should render all the images from ImageData", () => {

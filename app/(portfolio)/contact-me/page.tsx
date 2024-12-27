@@ -2,9 +2,9 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import ContactForm from "@/components/contact-me/ContactForm";
-import MailContactButton from "@/components/contact-me/MotionButtons/MailContactButton";
-import LinkedInLinkButton from "@/components/contact-me/MotionButtons/LinkedInLinkButton";
+import ContactForm from "@/components/ContactMe/ContactForm";
+import MailContactButton from "@/components/ContactMe/MotionButtons/MailContactButton";
+import LinkedInLinkButton from "@/components/ContactMe/MotionButtons/LinkedInLinkButton";
 
 const page = () => {
   const [contactFormIsSubmitted, setContactFormIsSubmitted] =

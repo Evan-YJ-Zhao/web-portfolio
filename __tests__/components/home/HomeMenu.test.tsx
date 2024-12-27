@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import HomeMenu from "@/components/home/HomeMenu";
-import navLinks from "@/components/layout/Nav/NavLinks";
+import HomeMenu from "@/components/Home/HomeMenu";
+import navLinks from "@/components/Layout/Nav/NavLinks";
 
 describe("HomeMenu component", () => {
   it("should render a nav element", () => {

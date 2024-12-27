@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import FloatingTriangleGroup from "@/components/home/FloatingTriangleGroup";
+import FloatingTriangleGroup from "@/components/Home/FloatingTriangleGroup";
 
 describe("FloatingTriangleGroup component", () => {
   it("should render 12 triangles when the screen is 1200px wide", () => {

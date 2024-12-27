@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 import { render, screen, within } from "@testing-library/react";
-import SectionWrapper from "@/components/wrappers/SectionWrapper";
+import SectionWrapper from "@/components/Wrappers/SectionWrapper";
 
 const MockedChildOne = jest.fn(() => (
   <p data-testid="mocked-child-one">Mocked Child One</p>

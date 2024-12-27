@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import HomePage from "@/app/page";
-import HomeMenu from "@/components/home/HomeMenu";
-import FloatingTriangleGroup from "@/components/home/FloatingTriangleGroup";
+import HomeMenu from "@/components/Home/HomeMenu";
+import FloatingTriangleGroup from "@/components/Home/FloatingTriangleGroup";
 
 jest.mock("@/components/home/HomeMenu", () =>
   jest.fn(() => <div>MockedHomeMenu</div>)

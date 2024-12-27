@@ -2,14 +2,14 @@
 
 import { AnimatePresence } from "framer-motion";
 import { useCallback, useState } from "react";
-import AboutPanel from "@/components/about-me/AboutPanel";
-import SectionWrapper from "@/components/wrappers/SectionWrapper";
-import SwitchMotionButton from "@/components/about-me/SwitchMotionButton";
-import TechSkillsPanel from "@/components/about-me/TechSkills/TechSkillsPanel";
-import TechStackImagePanel from "@/components/about-me/TechStack/ImagePanel/TechStackImagePanel";
-import TechStackImageSlider from "@/components/about-me/TechStack/ImageSlider/TechStackImageSlider";
-import Timeline from "@/components/about-me/Timeline/Timeline";
-import TimelineMobile from "@/components/about-me/Timeline/TimelineMobile";
+import AboutPanel from "@/components/AboutMe/AboutPanel";
+import SectionWrapper from "@/components/Wrappers/SectionWrapper";
+import SwitchMotionButton from "@/components/AboutMe/SwitchMotionButton";
+import TechSkillsPanel from "@/components/AboutMe/TechSkills/TechSkillsPanel";
+import TechStackImagePanel from "@/components/AboutMe/TechStack/ImagePanel/TechStackImagePanel";
+import TechStackImageSlider from "@/components/AboutMe/TechStack/ImageSlider/TechStackImageSlider";
+import Timeline from "@/components/AboutMe/Timeline/Timeline";
+import TimelineMobile from "@/components/AboutMe/Timeline/TimelineMobile";
 import useWindowAttr from "@/hooks/useWindowAttr";
 
 const laptopViewWidth = 1024;

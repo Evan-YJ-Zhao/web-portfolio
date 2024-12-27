@@ -1,4 +1,4 @@
-import NavBar from "@/components/layout/Nav/NavBar";
+import NavBar from "@/components/Layout/Nav/NavBar";
 
 const PortfolioLayout = ({ children }: { children: React.ReactNode }) => {
   return (

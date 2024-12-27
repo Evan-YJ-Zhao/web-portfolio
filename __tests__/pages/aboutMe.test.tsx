@@ -3,7 +3,7 @@ import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import AboutMePage from "@/app/(portfolio)/about-me/page";
-import SectionWrapper from "@/components/wrappers/SectionWrapper";
+import SectionWrapper from "@/components/Wrappers/SectionWrapper";
 
 
 jest.mock("@/components/wrappers/SectionWrapper", () =>
