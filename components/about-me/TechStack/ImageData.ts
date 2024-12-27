@@ -81,7 +81,7 @@ const images: ReadonlyArray<TechStackImage> = Object.freeze([
     image: typeScriptImg,
     description: "An Image of TypeScript",
     priority: true,
-  },
+  }, 
 ]);
 
 export type { TechStackImage };

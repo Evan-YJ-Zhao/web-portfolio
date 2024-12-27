@@ -1,9 +1,10 @@
+import { MouseEventHandler } from "react";
 import "@testing-library/jest-dom";
-import { render, fireEvent } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import AboutMePage from "@/app/(portfolio)/about-me/page";
 import SectionWrapper from "@/components/wrappers/SectionWrapper";
-import { MouseEventHandler } from "react";
+
 
 jest.mock("@/components/wrappers/SectionWrapper", () =>
   jest.fn(
