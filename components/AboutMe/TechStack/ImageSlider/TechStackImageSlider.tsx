@@ -6,7 +6,9 @@ import images from "../ImageData";
 import ImageSliderControls from "./Controls";
 import ImageSliderCore from "./Core";
 
-const totalImages = images.length;
+// Images will never be empty, but just in case...
+// Included a unit test to ensure images are never empty.
+const totalImages = images.length != 0 ? images.length : 1;
 const rotationDeg = 360 / totalImages;
 
 // Showcase the techstack (skills) used to build this site.
