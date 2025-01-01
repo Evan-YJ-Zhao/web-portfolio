@@ -6,6 +6,7 @@ type Props = OptionalClassName & {
   onClickHandler: MouseEventHandler<HTMLButtonElement>;
 };
 
+// TODO: decouple svg from button, allow passing svg as prop/children, move component to a resuable common folder.
 const SwitchMotionButton = memo(({ className = "", onClickHandler }: Props) => {
   return (
     <motion.button
