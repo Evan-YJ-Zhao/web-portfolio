@@ -9,3 +9,6 @@ README.md
 .env.example
 .env.development
 .env.production
+jest.config.ts
+jest.setup.ts
+__tests__
