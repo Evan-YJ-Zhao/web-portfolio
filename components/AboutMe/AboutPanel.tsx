@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { aboutMeImg, githubNamedImg, linkedInColoredImg } from "@/utils/images";
-import { LINKS } from "@/utils/links";
-
+import LINKS from "@/utils/links";
+import NAMES from "@/utils/names";
 
 const AboutPanel = () => {
   return (
@@ -26,7 +26,7 @@ const AboutPanel = () => {
           flex flex-col justify-center"
       >
         <h1 className="text-4xl font-bold text-center tablet:text-right">
-          (Evan) Yu Jun Zhao
+          {NAMES.FULL}
         </h1>
         <p className="py-6 text-lg text-center tablet:text-right ">
           I'm a full-stack software engineer based in the San Francisco Bay Area
