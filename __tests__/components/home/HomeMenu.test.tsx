@@ -20,7 +20,7 @@ describe("HomeMenu component", () => {
     const listItems = screen.getAllByRole("listitem");
     expect(listItems).toHaveLength(navLinks.length);
 
-    navLinks.forEach((item, index) => {
+    navLinks.forEach((item) => {
       const { name, isDisabled } = item;
 
       const link = screen.getByRole("link", { name });

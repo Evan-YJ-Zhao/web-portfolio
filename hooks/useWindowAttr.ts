@@ -25,10 +25,8 @@ function useWindowAttr(): WindowAttr {
       });
     };
 
-    if (!isInClient) {
-      setIsInClient(true);
-      handleResize();
-    }
+    setIsInClient(true);
+    handleResize();
 
     window.addEventListener("resize", handleResize);
     return () => {

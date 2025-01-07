@@ -39,4 +39,5 @@ const Controls = memo(
   }
 );
 
+Controls.displayName = "Controls";
 export default Controls;

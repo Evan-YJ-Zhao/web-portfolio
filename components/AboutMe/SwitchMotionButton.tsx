@@ -34,4 +34,5 @@ const SwitchMotionButton = memo(({ className = "", onClickHandler }: Props) => {
   );
 });
 
+SwitchMotionButton.displayName = "SwitchMotionButton";
 export default SwitchMotionButton;

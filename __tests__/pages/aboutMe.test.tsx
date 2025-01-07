@@ -5,7 +5,6 @@ import userEvent from "@testing-library/user-event";
 import AboutMePage from "@/app/(portfolio)/about-me/page";
 import SectionWrapper from "@/components/Wrappers/SectionWrapper";
 
-
 jest.mock("@/components/wrappers/SectionWrapper", () =>
   jest.fn(
     ({
@@ -27,18 +26,16 @@ jest.mock("@/components/wrappers/SectionWrapper", () =>
     )
   )
 );
-jest.mock(
-  "@/components/about-me/TechStack/ImagePanel/TechStackImagePanel",
-  () =>
-    jest.fn(() => (
-      <div data-testid="mocked-tech-stack-image-panel">
-        Mocked TechStackImagePanel
-      </div>
-    ))
+jest.mock("@/components/AboutMe/TechStack/ImagePanel/TechStackImagePanel", () =>
+  jest.fn(() => (
+    <div data-testid="mocked-tech-stack-image-panel">
+      Mocked TechStackImagePanel
+    </div>
+  ))
 );
 
 jest.mock(
-  "@/components/about-me/TechStack/ImageSlider/TechStackImageSlider",
+  "@/components/AboutMe/TechStack/ImageSlider/TechStackImageSlider",
   () =>
     jest.fn(() => (
       <div data-testid="mocked-tech-stack-image-slider">
@@ -47,13 +44,13 @@ jest.mock(
     ))
 );
 
-jest.mock("@/components/about-me/TechSkills/TechSkillsPanel", () =>
+jest.mock("@/components/AboutMe/TechSkills/TechSkillsPanel", () =>
   jest.fn(() => (
     <div data-testid="mocked-tech-skills-panel">Mocked TechSkillsPanel</div>
   ))
 );
 
-jest.mock("@/components/about-me/SwitchMotionButton", () =>
+jest.mock("@/components/AboutMe/SwitchMotionButton", () =>
   jest.fn(
     ({
       onClickHandler,
@@ -70,16 +67,16 @@ jest.mock("@/components/about-me/SwitchMotionButton", () =>
   )
 );
 
-jest.mock("@/components/about-me/Timeline/TimelineMobile", () =>
+jest.mock("@/components/AboutMe/Timeline/TimelineMobile", () =>
   jest.fn(() => (
     <div data-testid="mocked-timeline-mobile">Mocked TimelineMobile</div>
   ))
 );
-jest.mock("@/components/about-me/Timeline/Timeline", () =>
+jest.mock("@/components/AboutMe/Timeline/Timeline", () =>
   jest.fn(() => <div data-testid="mocked-timeline">Mocked Timeline</div>)
 );
 
-jest.mock("@/components/about-me/AboutPanel", () =>
+jest.mock("@/components/AboutMe/AboutPanel", () =>
   jest.fn(() => <div data-testid="mocked-about-panel">Mocked About Panel</div>)
 );
 
@@ -113,8 +110,7 @@ describe("About Me Page", () => {
       (
         titlePosition: string,
         title: string,
-        screenWidth: number,
-        operatorSymbol: string
+        screenWidth: number
       ) => {
         window.innerWidth = screenWidth;
         const { getAllByTestId } = render(<AboutMePage />);
@@ -183,7 +179,7 @@ describe("About Me Page", () => {
         numberOfSwitchButtonClicks: number
       ) => {
         window.innerWidth = screenWidth;
-        const { getAllByTestId, getByTestId, queryByTestId, debug } = render(
+        const { getAllByTestId, getByTestId, queryByTestId } = render(
           <AboutMePage />
         );
         const sectionWrappers = getAllByTestId("mocked-section-wrapper");
@@ -215,7 +211,7 @@ describe("About Me Page", () => {
       ["left", laptopViewWidth + 1, ">"],
     ])(
       "should have a %s title called Experience when the screen width (%d) %s laptopViewWidth (1024 px)",
-      (titlePosition: string, screenWidth: number, operatorSymbol: string) => {
+      (titlePosition: string, screenWidth: number) => {
         window.innerWidth = screenWidth;
         const { getAllByTestId } = render(<AboutMePage />);
 
@@ -242,8 +238,7 @@ describe("About Me Page", () => {
       (
         expectedComponent: string,
         unExpectedComponent: string,
-        screenWidth: number,
-        operatorSymbol: string
+        screenWidth: number
       ) => {
         window.innerWidth = screenWidth;
         const { getAllByTestId, getByTestId, queryByTestId } = render(
@@ -274,7 +269,7 @@ describe("About Me Page", () => {
       ["left", laptopViewWidth + 1, ">"],
     ])(
       "should have a %s title called About Me when the screen width (%d) %s laptopViewWidth (1024 px)",
-      (titlePosition: string, screenWidth: number, operatorSymbol: string) => {
+      (titlePosition: string, screenWidth: number) => {
         window.innerWidth = screenWidth;
         const { getAllByTestId } = render(<AboutMePage />);
 

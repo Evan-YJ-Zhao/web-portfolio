@@ -7,7 +7,8 @@ describe("axiosInstance", () => {
   // TODO: create a custom type for the handlers
   //  or wait till https://github.com/axios/axios/issues/6137 is addressed
   const responseInterceptorHandlers = (
-    axiosInstance.interceptors.response as any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    axiosInstance.interceptors.response as any 
   ).handlers;
 
   describe("first handler", () => {

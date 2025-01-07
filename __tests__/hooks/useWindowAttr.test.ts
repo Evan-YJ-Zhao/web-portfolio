@@ -15,7 +15,7 @@ describe("useWindowAttr hook", () => {
     });
   });
 
-  it("should return a windowSize matching the window inner width and height", async () => {
+  it("should set isInClient to true", async () => {
     const { result } = renderHook(() => useWindowAttr());
     await waitFor(() => {
       expect(result.current.isInClient).toBe(true);

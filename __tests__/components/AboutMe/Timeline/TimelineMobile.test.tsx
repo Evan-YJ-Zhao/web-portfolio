@@ -144,14 +144,14 @@ describe("TimelineMobile component", () => {
       });
 
       const form = closeDialogButton.closest("form");
-      form && form.addEventListener("submit", preventDefaultListener);
+      if (form) form.addEventListener("submit", preventDefaultListener);
 
       await userEvent.click(closeDialogButton);
 
       const lofiDivs = timelineListItem.querySelectorAll('[data-theme="lofi"]');
       expect(lofiDivs.length).toBe(2);
 
-      form && form.removeEventListener("submit", preventDefaultListener);
+      if (form) form.removeEventListener("submit", preventDefaultListener);
     }
   });
 });

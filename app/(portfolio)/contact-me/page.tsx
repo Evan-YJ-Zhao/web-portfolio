@@ -6,7 +6,7 @@ import ContactForm from "@/components/ContactMe/ContactForm";
 import MailContactButton from "@/components/ContactMe/MotionButtons/MailContactButton";
 import LinkedInLinkButton from "@/components/ContactMe/MotionButtons/LinkedInLinkButton";
 
-const page = () => {
+const ContactMePage = () => {
   const [contactFormIsSubmitted, setContactFormIsSubmitted] =
     useState<boolean>(false);
 
@@ -56,4 +56,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default ContactMePage;

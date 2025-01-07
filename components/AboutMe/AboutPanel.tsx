@@ -29,9 +29,9 @@ const AboutPanel = () => {
           {NAMES.FULL}
         </h1>
         <p className="py-6 text-lg text-center tablet:text-right ">
-          I'm a full-stack software engineer based in the San Francisco Bay Area
-          with a Bachelor's in Computer Science from San José State University.
-          When I'm not coding, you'll find me reading web novels, trying to
+          I&apos;m a full-stack software engineer based in the San Francisco Bay Area
+          with a Bachelor&apos;s in Computer Science from San José State University.
+          When I&apos;m not coding, you&apos;ll find me reading web novels, trying to
           outlift my last gym session, or indulging in food that makes me
           question my time at the gym. Well, at the end, life is all about
           balance, right?

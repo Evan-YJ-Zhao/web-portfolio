@@ -15,7 +15,7 @@ import useWindowAttr from "@/hooks/useWindowAttr";
 const laptopViewWidth = 1024;
 const tabletViewWidth = 768;
 
-const page = () => {
+const AboutMePage = () => {
   const [showImageSlider, setShowImageSlider] = useState(true);
   const { isInClient, windowSize } = useWindowAttr();
   const { width } = windowSize;
@@ -80,4 +80,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default AboutMePage;
