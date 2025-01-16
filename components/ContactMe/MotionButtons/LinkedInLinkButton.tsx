@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { linkedInColoredImg } from "@/utils/images";
-import { LINKS } from "@/utils/links";
+import LINKS from "@/utils/links";
 import { OptionalClassName } from "@/utils/types";
 
 type Props = OptionalClassName & {

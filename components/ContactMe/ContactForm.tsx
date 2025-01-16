@@ -16,7 +16,7 @@ import formValuesReducer, {
   FormValuesState,
 } from "@/reducers/formValuesReducer";
 import { StringValues } from "@/utils/types";
-import { LINKS } from "@/utils/links";
+import LINKS from "@/utils/links";
 import FormTextLabelledInput from "./Input/FormTextLabelledInput";
 import FormLabelledTextArea from "./Input/FormLabelledTextArea";
 import { ApiResponse } from "@/api/types";
