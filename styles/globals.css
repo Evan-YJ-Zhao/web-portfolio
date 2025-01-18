@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply w-screen h-dvh flex flex-col;
+    @apply w-screen h-dvh flex flex-col overflow-x-hidden;
   }
 
   main {
